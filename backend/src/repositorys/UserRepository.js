@@ -1,7 +1,6 @@
 const crypto = require('crypto')
 
 const {promisify} = require('util')
-const path = require('path')
 
 const { readFile, writeFile} = require('fs')
 
@@ -28,7 +27,7 @@ class UserRepository {
 
     return true
   }
-  async createUser(user){
+  async createUser(user ){
     const dados = await  this.getFileAndRead()
 
 
@@ -37,28 +36,67 @@ class UserRepository {
       if(!user){
         throw  Error('user not passed, try again')
       }
+      const _id = this._id
+
       const userId = {
-        _id: this._id,
+        _id,
         ...user
       }
       const dadosEnd = [
         ...dados,
         userId
       ]
-
-      const response = await this.writeFile(dadosEnd)
-
-      return response
-      
-
+      await this.writeFile(dadosEnd)
+      return dadosEnd
     }catch(err){
       throw new  Error('user not create' )
     }
+  }
+  async listAllUsers(){
+    try{
 
+      const file = await this.getFileAndRead()
+      if(file == []){
+        return 'not have   users'
+      }
+
+      return file
+    }catch(err){
+      throw Error('no is possible to list user')
+    }
   }
 
+  async listOneUser(_id){
+ 
+    try{
+      const file = await this.getFileAndRead()
+      const user = file.filter(user =>  user._id === _id)
+      return user
 
+    }catch(err){
+      throw Error('no is possible to list user')
+    }
+  }
 
+  async deleteOne(_id){
+    try{
+      const file = await this.getFileAndRead()
+
+      const index = file.findIndex(item => item._id == _id)
+
+      if(index == -1){
+        throw Error('user not exist')
+      }
+      file.splice(index , 1)
+  
+  
+      await this.writeFile([...file])
+      return true
+
+    }catch(err){
+      throw Error('user not delete')
+    }
+  }
 
 
 
