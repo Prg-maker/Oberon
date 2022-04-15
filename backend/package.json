@@ -17,6 +17,7 @@
     "util": "^0.12.4"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage"
   }
 }

@@ -1,3 +1,4 @@
+
 const crypto = require('crypto')
 
 const {promisify} = require('util')
@@ -11,9 +12,8 @@ class UserRepository {
 
   constructor(){
     this._id = crypto.randomUUID(),
-    this.pathFile = './src/repositorys/user.json'
+    this.pathFile = './src/repositorys/User/user.json'
   }
-
 
 
 
@@ -27,26 +27,31 @@ class UserRepository {
 
     return true
   }
+
   async createUser(user ){
     const dados = await  this.getFileAndRead()
-
 
     try{
       
       if(!user){
         throw  Error('user not passed, try again')
       }
+
       const _id = this._id
 
       const userId = {
         _id,
         ...user
       }
+
       const dadosEnd = [
         ...dados,
         userId
       ]
+
+      
       await this.writeFile(dadosEnd)
+
       return dadosEnd
     }catch(err){
       throw new  Error('user not create' )
