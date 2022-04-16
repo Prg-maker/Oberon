@@ -30,14 +30,18 @@ class UserRepository {
 
   async createUser(user ){
     const dados = await  this.getFileAndRead()
-
+    
     try{
-      
-      if(!user){
-        throw  Error('user not passed, try again')
-      }
+
 
       const _id = this._id
+
+
+      const userAlredyExist = dados.filter(item => item.id == _id )
+
+      if(userAlredyExist == []){
+        throw Error('user alredy exist')
+      }
 
       const userId = {
         _id,
@@ -45,8 +49,8 @@ class UserRepository {
       }
 
       const dadosEnd = [
-        ...dados,
-        userId
+        userId,
+        ...dados
       ]
 
       
