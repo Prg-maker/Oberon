@@ -41,7 +41,7 @@ describe('testing project' , ()=> {
   })
 
   it('should delete one project for id' , async () => {
-    const projectDelete = await Project.delete('33a3664e-d54f-4981-bfbe-834493ffa536')
+    const projectDelete = await Project.delete('72190b58-efa2-4750-8c29-9e73953e432f')
 
 
   

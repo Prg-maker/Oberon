@@ -1,6 +1,6 @@
 
 const crypto = require('crypto')
-
+const {v4} = require('uuid')
 const {promisify} = require('util')
 
 const { readFile, writeFile} = require('fs')
@@ -11,7 +11,7 @@ const readFileAssync = promisify(readFile)
 class UserRepository {
 
   constructor(){
-    this._id = crypto.randomUUID(),
+    this._id = v4(),
     this.pathFile = './src/repositorys/User/user.json'
   }
 
@@ -33,30 +33,33 @@ class UserRepository {
     
     try{
 
-
+      
       const _id = this._id
 
+      const userAlredyExist =  dados.filter(item => item._id == _id )
 
-      const userAlredyExist = dados.filter(item => item.id == _id )
 
-      if(userAlredyExist == []){
-        throw Error('user alredy exist')
+      if(userAlredyExist.length == 0){
+
+        const userId = {
+          _id,
+          ...user
+        }
+  
+        const dadosEnd = [
+          userId,
+          ...dados
+        ]
+  
+        
+        await this.writeFile(dadosEnd)
+  
+        return dadosEnd
+
+
       }
-
-      const userId = {
-        _id,
-        ...user
-      }
-
-      const dadosEnd = [
-        userId,
-        ...dados
-      ]
-
       
-      await this.writeFile(dadosEnd)
-
-      return dadosEnd
+      
     }catch(err){
       throw new  Error('user not create' )
     }
@@ -65,7 +68,7 @@ class UserRepository {
     try{
 
       const file = await this.getFileAndRead()
-      if(file == []){
+      if(file == 0){
         return 'not have   users'
       }
 
@@ -78,8 +81,15 @@ class UserRepository {
   async listOneUser(_id){
  
     try{
+
+
+
       const file = await this.getFileAndRead()
       const user = file.filter(user =>  user._id === _id)
+
+      if(user == 0 ){
+        return 'user not exist, try again'
+      }
       return user
 
     }catch(err){
@@ -91,6 +101,8 @@ class UserRepository {
     try{
       const file = await this.getFileAndRead()
 
+      const [user] = await this.listOneUser(_id)
+
       const index = file.findIndex(item => item._id == _id)
 
       if(index == -1){
@@ -100,7 +112,7 @@ class UserRepository {
   
   
       await this.writeFile([...file])
-      return true
+      return user
 
     }catch(err){
       throw Error('user not delete')

@@ -10,6 +10,14 @@ const usuario_cadastrar = {
   projects:[]
 }
 
+const usuario_fake = {
+  _id: '1',
+  name: 'DanielFernandesSilva',
+  password: 'daniell123',
+  nameGithub: 'Prg-Maker',
+  projects:[]
+}
+
 describe('testing User' , ()=> {
   it('should creating a user' , async ()=>{
 
@@ -22,21 +30,23 @@ describe('testing User' , ()=> {
 
   it('should list as users', async()=> {
     const users= await User.listAllUsers()
-
+    
     expect(users).toBeTruthy()
 
   })
 
   it('should list a user for id' , async ()=> {
-    const user = await User.listOneUser('3c740ec1-7c96-40f6-80df-e8d81d3669a1')
+    const [user] = await User.listOneUser('1')
 
-    expect(user).toBeTruthy()
+    expect(user).toEqual(usuario_fake)
 
   })
 
   it('should delete a user for id' , async ()=> {
-    const user = await User.deleteOne('af1422cb-a128-4aa2-a1f7-c07155b7a178')
+    const USER_NOT_LIST = await User.listOneUser('1')
+    console.log(USER_NOT_LIST)
 
-    expect(user).toBeTruthy()
+    const user = await User.deleteOne('1')
+    expect(user).not.toEqual(USER_NOT_LIST)
   })
 })
