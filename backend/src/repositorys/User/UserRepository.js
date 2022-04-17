@@ -11,7 +11,6 @@ const readFileAssync = promisify(readFile)
 class UserRepository {
 
   constructor(){
-    this._id = v4(),
     this.pathFile = './src/repositorys/User/user.json'
   }
 
@@ -30,14 +29,13 @@ class UserRepository {
 
   async createUser(user ){
     const dados = await  this.getFileAndRead()
-    
     try{
 
       
-      const _id = this._id
+      const _id =v4()
 
       const userAlredyExist =  dados.filter(item => item._id == _id )
-
+      console.log(userAlredyExist)
 
       if(userAlredyExist.length == 0){
 

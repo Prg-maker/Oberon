@@ -2,9 +2,12 @@ const User = require('../repositorys/User/UserRepository')
 
 class UserServices{ 
   
+  constructor(){
+    this.user = []
+  }
 
   async create(user){
-
+   
     try{ 
 
       if(!user){
@@ -12,16 +15,15 @@ class UserServices{
       }
       
       const [response] = await User.createUser(user)
+      
       return response
     }catch(err){
       throw Error('could not create user')
     }
-
   }
 
   async listOneUser(userId){
     const response = await User.listOneUser(userId)
-
     if(!userId){
       throw Error('user  not exist')
     }

@@ -1,12 +1,20 @@
 const UserServices = require('../UserServices')
 
 const user = {
-  "_id": "b4e5abbf-2a2a-4f28-a9f4-f0f58a85f116",
   "name": "DanielFernandesSilva",
   "password": "daniell123",
   "nameGithub": "Prg-Maker",
   "projects": []
 }
+
+const user_fake= {
+  "_id":"1",
+  "name": "DanielFernandesSilva",
+  "password": "daniell123",
+  "nameGithub": "Prg-Maker",
+  "projects": []
+}
+
 
 describe('testing sevices user' , ()=> {
   
@@ -22,9 +30,9 @@ describe('testing sevices user' , ()=> {
   })
 
   it('list user' , async ()=> {
-    const response = await UserServices.listOneUser('b4e5abbf-2a2a-4f28-a9f4-f0f58a85f116')
+    const [response] = await UserServices.listOneUser(user_fake._id)
     
-    expect(response)
+    expect(response).toEqual(user_fake)
   })
 
 
@@ -37,9 +45,10 @@ describe('testing sevices user' , ()=> {
 
 
   it('delete user' , async ()=> {
-    const response = await UserServices.delete('ddad3456-24c8-4316-8f50-d6a689b51a81')
+    const user = await UserServices.listOneUser('b6bdcdb3-e01c-437d-8a11-59681583fc0f')
+    const response = await UserServices.delete('b6bdcdb3-e01c-437d-8a11-59681583fc0f')
 
-    expect(response).toBeTruthy()
+    expect(response).not.toEqual(user)
   })
 
 })
