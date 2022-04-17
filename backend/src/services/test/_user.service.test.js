@@ -45,8 +45,8 @@ describe('testing sevices user' , ()=> {
 
 
   it('delete user' , async ()=> {
-    const user = await UserServices.listOneUser('b6bdcdb3-e01c-437d-8a11-59681583fc0f')
-    const response = await UserServices.delete('b6bdcdb3-e01c-437d-8a11-59681583fc0f')
+    const user = await UserServices.listOneUser('91531197-2626-4dde-9cab-c9724ddbcc97')
+    const response = await UserServices.delete('91531197-2626-4dde-9cab-c9724ddbcc97')
 
     expect(response).not.toEqual(user)
   })

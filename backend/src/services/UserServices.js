@@ -23,28 +23,52 @@ class UserServices{
   }
 
   async listOneUser(userId){
-    const response = await User.listOneUser(userId)
-    if(!userId){
-      throw Error('user  not exist')
+
+    try{
+      if(!userId){
+        throw Error('user  not exist')
+      }
+      const response = await User.listOneUser(userId)
+   
+      return response
+      
+    }catch(err){
+      throw Error('it was not possible to list the user')
     }
-    return response
-    
+
   }
 
   async listAllUser(){
-    const response = await User.listAllUsers()
 
-    return response
+    try{
+
+      const response = await User.listAllUsers()
+      if(response == 0){
+        return 'no have users'
+      }
+      return response
+
+    }catch(err){
+      throw Error('it was not possible to list the users')
+    }
+  
   } 
 
   async delete(userId){
-    const response = await User.deleteOne(userId)
 
-    if(!userId){
-      throw Error('user  not exist')
+    try{
+      if(!userId){
+        throw Error('user  not exist')
+      }
+
+      const response = await User.deleteOne(userId)
+   
+      return true
+
+    }catch(err){
+      throw Error('not was possible to delete the user ')
     }
-    console.log(response)
-    return true
+
   }
   
 }
