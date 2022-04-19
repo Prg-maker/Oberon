@@ -76,7 +76,8 @@ class UserRepository {
     }
   }
 
-  async listOneUser(_id){
+
+  async listOneUser(_id ){
  
     try{
 
