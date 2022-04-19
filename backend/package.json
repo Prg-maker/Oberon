@@ -1,7 +1,9 @@
 {
   "dependencies": {
     "@prisma/client": "^3.12.0",
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
+    "jsonwebtoken": "^8.5.1",
     "prisma": "^3.12.0",
     "uuid": "^8.3.2"
   },
@@ -18,7 +20,9 @@
     "util": "^0.12.4"
   },
   "scripts": {
+    "build": "",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "dev": "nodemon src/server.js"
   }
 }

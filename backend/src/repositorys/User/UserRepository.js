@@ -89,7 +89,6 @@ class UserRepository {
         return 'user not exist, try again'
       }
       return user
-
     }catch(err){
       throw Error('no is possible to list user')
     }
