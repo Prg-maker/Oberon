@@ -13,6 +13,9 @@ class UserServices{
       if(!user){
         throw Error('user was not create')
       }
+
+      await User.validateOfName(user.name)
+    
       
       const [response] = await User.createUser(user)
       
@@ -25,6 +28,7 @@ class UserServices{
   async listOneUser(userId){
 
     try{
+      
       if(!userId){
         throw Error('user  not exist')
       }

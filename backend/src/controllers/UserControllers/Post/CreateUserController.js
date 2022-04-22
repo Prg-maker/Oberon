@@ -1,6 +1,6 @@
-const UserServices = require('../../services/UserServices')
+const UserServices = require('../../../services/UserServices')
 const crypto = require('crypto')
-const GenerateToken = require('../../utils/GenerateToken')
+const GenerateToken = require('../../../utils/GenerateToken')
 
 
 class UserController{
@@ -36,7 +36,7 @@ class UserController{
   
     }catch(err){
       return res.status(400).send({
-        message:'User not create, try again'
+        message:'User not create,  try with another name'
       })
     }
 

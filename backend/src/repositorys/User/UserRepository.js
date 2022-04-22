@@ -34,10 +34,14 @@ class UserRepository {
       
       const _id =v4()
 
+
       const userAlredyExist =  dados.filter(item => item._id == _id )
-      console.log(userAlredyExist)
+
+
 
       if(userAlredyExist.length == 0){
+
+
 
         const userId = {
           _id,
@@ -115,6 +119,22 @@ class UserRepository {
     }catch(err){
       throw Error('user not delete')
     }
+  }
+
+
+  async validateOfName(name){
+    const users  = await this.listAllUsers()
+
+    const validate = users.filter(user => user.name == name )
+
+
+    if(validate.length == 0){
+      return 
+    } 
+
+    throw new Error('the name is already being used')
+    
+
   }
 
 

@@ -1,5 +1,5 @@
 
-const UserServices = require('../../services/UserServices')
+const UserServices = require('../../../services/UserServices')
 
 class ListAllUserController{
   async handle(req , res){

@@ -4,7 +4,7 @@ const User = require('../UserRepository')
 
 
 const usuario_cadastrar = {
-  name: 'DanielFernandesSilva',
+  name: 'gabriel',
   password: 'daniell123',
   nameGithub: 'Prg-Maker',
   projects:[]
@@ -44,9 +44,17 @@ describe('testing User' , ()=> {
 
   it('should delete a user for id' , async ()=> {
     const USER_NOT_LIST = await User.listOneUser('1')
-    console.log(USER_NOT_LIST)
 
-    const user = await User.deleteOne('1')
+    const user = await User.deleteOne('f572edb6-3450-4133-bad8-4847246fb782')
     expect(user).not.toEqual(USER_NOT_LIST)
+  })
+
+  it('should validate of name, if the name did not exist, create a user, else not create' , async  ()=> {
+    const user = usuario_fake
+
+    const userValidate = await User.validateOfName('d')
+  
+    expect(userValidate)
+
   })
 })
