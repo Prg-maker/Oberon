@@ -1,11 +1,15 @@
 const crypto = require('crypto')
+const bcrypto = require('bcrypt')
 
+const User = require('../../../services/UserServices')
 
 class AuthLoginController {
   async handle(req , res){
     const {name, password} = req.body
 
-    crypto.getHashes
+    const user = await User.listAllUser() 
+
+
   }
 }
 
