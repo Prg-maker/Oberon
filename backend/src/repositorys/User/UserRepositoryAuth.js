@@ -13,10 +13,12 @@ class UserRepositoryAuth{
 
   async getUserForName(name){
 
-    const users = await UserRepository.listAllUsers()
-    console.log(name)
-    const user = users.filter(user => user.name == name )
-
+    const users = await UserRepository.listAllUsers() 
+    
+    const user = users.filter(user => user.name === name )
+    if(user == 0){
+      throw new Error('user not exist')
+    }
 
     return user
 
