@@ -1,17 +1,24 @@
 const UserRepositoryAuth = require("../UserRepositoryAuth")
 
 const user_fake={
-  name:'diego',
-  passwor:'213'
+  name:'danis',
+  password:'465465'
 }
 
 
 describe('testing user repository auth ' , () => {
   it('should get user for name' , async ()=> {
-    const name = 'diego'
 
-    const user = await UserRepositoryAuth.getUserForName(user_fake.name)
-
-    expect(user).toBeTruthy()
+    const [user] = await UserRepositoryAuth.getUserForName(user_fake.name)
+    expect(user.name).toEqual(user_fake.name)
   })
+
+  it('Should must validate a user by password and name' , async ()=> {
+
+    const userAlredExist  = await  UserRepositoryAuth.validateUser(user_fake)
+    
+    expect(userAlredExist).toBeTruthy()
+  })
+
+
 })

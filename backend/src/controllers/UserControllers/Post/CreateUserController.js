@@ -1,7 +1,6 @@
 const UserServices = require('../../../services/UserServices')
-const crypto = require('crypto')
+const bcrypt = require('bcrypt')
 const GenerateToken = require('../../../utils/GenerateToken')
-
 
 class UserController{
 
@@ -13,7 +12,7 @@ class UserController{
 
     try{
       
-      const HashPassword = crypto.createHash('md5').update(password).digest('hex')
+      const HashPassword = await bcrypt.hash(password , 10)
     
       const user = {
         name,

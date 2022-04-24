@@ -1,5 +1,4 @@
 const crypto = require('crypto')
-const bcrypto = require('bcrypt')
 
 const User = require('../../../services/UserServices')
 
