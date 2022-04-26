@@ -52,7 +52,7 @@ describe('testing User' , ()=> {
   it('should validate of name, if the name did not exist, create a user, else not create' , async  ()=> {
     const user = usuario_fake
 
-    const userValidate = await User.validateOfName('d')
+    const userValidate = await User.validateOfName('daniel')
   
     expect(userValidate)
 
