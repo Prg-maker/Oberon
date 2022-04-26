@@ -13,7 +13,7 @@ class UserRepositoryAuth{
       if(!await bcrypto.compare(userPass.password, password)){
         throw new Error('user Invalid password')
       }
-      return true
+      return user
 
     }catch(err){
       throw new Error('user has not been passed')

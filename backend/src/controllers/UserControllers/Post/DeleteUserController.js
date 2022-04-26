@@ -1,0 +1,3 @@
+class DeleteUserController{
+  async handle(){}
+}

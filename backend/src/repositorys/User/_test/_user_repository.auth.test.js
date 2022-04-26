@@ -16,8 +16,7 @@ describe('testing user repository auth ' , () => {
   it('Should must validate a user by password and name' , async ()=> {
 
     const userAlredExist  = await  UserRepositoryAuth.validateUser(user_fake)
-    
-    expect(userAlredExist).toBeTruthy()
+    expect(userAlredExist.name).toEqual(user_fake.name)
   })
 
 

@@ -30,13 +30,9 @@ class UserRepository {
   async createUser(user ){
     const dados = await  this.getFileAndRead()
     try{
-
-      
       const _id =v4()
-
-
       const userAlredyExist =  dados.filter(item => item._id == _id )
-
+      
 
 
       if(userAlredyExist.length == 0){
@@ -128,12 +124,11 @@ class UserRepository {
     const validate = users.filter(user => user.name == name )
 
 
-    if(validate.length == 0){
-      return 
+    if(validate != 0){
+      throw new Error('the name is already being used')
     } 
 
-    throw new Error('the name is already being used')
-    
+    return
 
   }
 

@@ -1,14 +1,29 @@
-const crypto = require('crypto')
+const AuthUseCase = require('../../../usecases/AuthUseCase')
+const GenerateToken = require('../../../utils/GenerateToken')
 
-const User = require('../../../services/UserServices')
 
 class AuthLoginController {
   async handle(req , res){
-    const {name, password} = req.body
+    const {name , password} = req.body
 
-    const user = await User.listAllUser() 
+    const Auth = {
+      name,
+      password
+    }
 
+    try{
+      const user = await AuthUseCase.auth(Auth)
 
+      return res.json({
+        user,
+        token: GenerateToken(user)
+      })
+  
+    }catch(err){
+      return res.status(400).send({error: "password or name incorrect"})
+    }
+
+ 
   }
 }
 
