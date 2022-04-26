@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1650934048475" clover="3.2.0">
-  <project timestamp="1650934048476" name="All files">
-    <metrics statements="220" coveredstatements="197" conditionals="33" coveredconditionals="23" methods="16" coveredmethods="16" elements="269" coveredelements="236" complexity="0" loc="220" ncloc="220" packages="3" files="4" classes="4"/>
+<coverage generated="1650935290349" clover="3.2.0">
+  <project timestamp="1650935290356" name="All files">
+    <metrics statements="220" coveredstatements="193" conditionals="31" coveredconditionals="21" methods="16" coveredmethods="16" elements="267" coveredelements="230" complexity="0" loc="220" ncloc="220" packages="3" files="4" classes="4"/>
     <package name="repositorys.User">
-      <metrics statements="179" coveredstatements="163" conditionals="24" coveredconditionals="17" methods="10" coveredmethods="10"/>
+      <metrics statements="179" coveredstatements="159" conditionals="22" coveredconditionals="15" methods="10" coveredmethods="10"/>
       <file name="UserRepository.js" path="/home/danielDev/Oberon/backend/src/repositorys/User/UserRepository.js">
-        <metrics statements="139" coveredstatements="129" conditionals="19" coveredconditionals="14" methods="8" coveredmethods="8"/>
+        <metrics statements="139" coveredstatements="125" conditionals="17" coveredconditionals="12" methods="8" coveredmethods="8"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -86,22 +86,22 @@
         <line num="78" count="1" type="stmt"/>
         <line num="79" count="1" type="stmt"/>
         <line num="80" count="1" type="cond" truecount="1" falsecount="0"/>
-        <line num="81" count="4" type="stmt"/>
-        <line num="82" count="4" type="stmt"/>
-        <line num="83" count="4" type="stmt"/>
-        <line num="84" count="4" type="stmt"/>
-        <line num="85" count="4" type="stmt"/>
-        <line num="86" count="4" type="stmt"/>
-        <line num="87" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="88" count="4" type="stmt"/>
-        <line num="89" count="4" type="cond" truecount="1" falsecount="0"/>
-        <line num="90" count="1" type="stmt"/>
-        <line num="91" count="1" type="stmt"/>
-        <line num="92" count="3" type="cond" truecount="1" falsecount="0"/>
-        <line num="93" count="4" type="cond" truecount="0" falsecount="1"/>
+        <line num="81" count="3" type="stmt"/>
+        <line num="82" count="3" type="stmt"/>
+        <line num="83" count="3" type="stmt"/>
+        <line num="84" count="3" type="stmt"/>
+        <line num="85" count="3" type="stmt"/>
+        <line num="86" count="3" type="stmt"/>
+        <line num="87" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="88" count="3" type="stmt"/>
+        <line num="89" count="3" type="stmt"/>
+        <line num="90" count="3" type="stmt"/>
+        <line num="91" count="3" type="stmt"/>
+        <line num="92" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="93" count="0" type="stmt"/>
         <line num="94" count="0" type="stmt"/>
         <line num="95" count="0" type="stmt"/>
-        <line num="96" count="4" type="stmt"/>
+        <line num="96" count="3" type="stmt"/>
         <line num="97" count="1" type="stmt"/>
         <line num="98" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="99" count="1" type="stmt"/>
@@ -132,13 +132,13 @@
         <line num="124" count="1" type="cond" truecount="1" falsecount="0"/>
         <line num="125" count="1" type="stmt"/>
         <line num="126" count="1" type="stmt"/>
-        <line num="127" count="1" type="cond" truecount="0" falsecount="1"/>
-        <line num="128" count="0" type="stmt"/>
-        <line num="129" count="0" type="stmt"/>
-        <line num="130" count="1" type="stmt"/>
-        <line num="131" count="1" type="stmt"/>
-        <line num="132" count="1" type="stmt"/>
-        <line num="133" count="1" type="stmt"/>
+        <line num="127" count="1" type="stmt"/>
+        <line num="128" count="1" type="stmt"/>
+        <line num="129" count="1" type="cond" truecount="0" falsecount="1"/>
+        <line num="130" count="0" type="stmt"/>
+        <line num="131" count="0" type="stmt"/>
+        <line num="132" count="0" type="stmt"/>
+        <line num="133" count="0" type="stmt"/>
         <line num="134" count="1" type="stmt"/>
         <line num="135" count="1" type="stmt"/>
         <line num="136" count="1" type="stmt"/>

@@ -5,9 +5,9 @@ class ListUserController {
   async handle(req , res){
 
     try{
-      const id = req.params.id
+      const _id = req.params.id
 
-      const user = await UserServices.listOneUser(id)
+      const user = await UserServices.listOneUser(_id)
       
       delete user[0].password
 

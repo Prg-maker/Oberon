@@ -1,20 +1,14 @@
 
-const crypto = require('crypto')
 const {v4} = require('uuid')
 const {promisify} = require('util')
-
 const { readFile, writeFile} = require('fs')
-
 const writeFileAsync = promisify(writeFile)
 const readFileAssync = promisify(readFile)
 
 class UserRepository {
-
   constructor(){
     this.pathFile = './src/repositorys/User/user.json'
   }
-
-
 
   async getFileAndRead(){
     const file = await readFileAssync(this.pathFile)
@@ -32,56 +26,38 @@ class UserRepository {
     try{
       const _id =v4()
       const userAlredyExist =  dados.filter(item => item._id == _id )
-      
-
 
       if(userAlredyExist.length == 0){
-
-
 
         const userId = {
           _id,
           ...user
         }
-  
         const dadosEnd = [
           userId,
           ...dados
         ]
-  
         
         await this.writeFile(dadosEnd)
-  
         return dadosEnd
-
-
       }
-      
-      
     }catch(err){
       throw new  Error('user not create' )
     }
   }
   async listAllUsers(){
     try{
-
       const file = await this.getFileAndRead()
       if(file == 0){
         return 'not have   users'
       }
-
       return file
     }catch(err){
       throw Error('no is possible to list user')
     }
   }
-
-
   async listOneUser(_id ){
- 
     try{
-
-
 
       const file = await this.getFileAndRead()
       const user = file.filter(user =>  user._id === _id)
@@ -94,7 +70,6 @@ class UserRepository {
       throw Error('no is possible to list user')
     }
   }
-
   async deleteOne(_id){
     try{
       const file = await this.getFileAndRead()
@@ -107,8 +82,6 @@ class UserRepository {
         throw Error('user not exist')
       }
       file.splice(index , 1)
-  
-  
       await this.writeFile([...file])
       return user
 
@@ -116,8 +89,6 @@ class UserRepository {
       throw Error('user not delete')
     }
   }
-
-
   async validateOfName(name){
     const users  = await this.listAllUsers()
 
@@ -127,13 +98,9 @@ class UserRepository {
     if(validate != 0){
       throw new Error('the name is already being used')
     } 
-
     return
 
   }
-
-
-
 }
 
 module.exports = new UserRepository()

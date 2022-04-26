@@ -3,10 +3,11 @@ const {Router} = require('express')
 const {
   CreateUserController,
   ListOneUserController, 
-  ListAllUsersController
+  ListAllUsersController,
+  AuthLoginController,
+  DeleteUserController
 } = require('./controllers/UserControllers')
 
-const AuthLoginController = require('./controllers/UserControllers/UserAuth/AuthLoginController')
 
 const auth = require('./middlewares/auth')
 
@@ -17,6 +18,7 @@ router.get('/'  ,  new ListAllUsersController().handle)
 
 router.post('/register'  , new CreateUserController().handle)
 router.post('/login' , new AuthLoginController().handle)
+router.delete('/delete' , new DeleteUserController().handle)
 
 
 
