@@ -38,7 +38,6 @@ describe('testing project' , ()=> {
   it('should create one project' , async ()=> {
     const [sut] = await ProjectsRepositorys.createProject(Project_Test_fake)
     expect(sut.userId).toEqual(Project_Test_fake.userId)
-    console.log(sut)
     expect(sut.title).toEqual(Project_Test_fake.title)
 
   })

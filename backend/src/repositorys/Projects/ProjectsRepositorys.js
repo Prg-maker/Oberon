@@ -33,13 +33,17 @@ class ProjectsRepositorys {
 
     return true
   }
+  async writeFileUser(dados){
+    await writeFileAsync(this.pathFileUser , JSON.stringify(dados))
 
+    return true
+  }
 
   async createProject(project){
     const file = await this.getFileAndRead()
-    const users = await this.getFileAndReadUser()
+    const usersFile = await this.getFileAndReadUser()
     try{
-      
+
       if(!project.userId){
         throw new Error('project cannot be created, because user does not exist')
       }
@@ -61,15 +65,16 @@ class ProjectsRepositorys {
         projectId,
         ...file
       ]
-
-      const userProject = user.projects.push(projectId)
-
-      const usersFileEnd = {
-        userProject,
-        ...users
-      }
       
-      await this.writeFile(usersFileEnd)
+      
+      user.projects.push(projectId)
+      await UserRepository.deleteOne(user._id)
+      const userFileEnd = [
+        user,
+        ...usersFile
+      ]
+      
+      await this.writeFileUser(userFileEnd)
       await this.writeFile(fileEnd)
 
       return fileEnd
