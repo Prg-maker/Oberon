@@ -7,7 +7,6 @@ class ListAllUserController{
       const users = await UserServices.listAllUser()
 
       users.map(user => {
-        delete user._id
         delete user.password
       })
 

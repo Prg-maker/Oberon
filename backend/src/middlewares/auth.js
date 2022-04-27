@@ -27,10 +27,9 @@ function auth(req , res , next){
     return res.status(401).send({error: 'Token malformatted'})
   }
 
-
   jwt.verify(token , process.env.JWT , (err , decoded) => {
     if(err) return res.status(401).send({err: "token invalid"})
-
+    
     req.userId = decoded.id
 
     return next()
