@@ -6,6 +6,8 @@ class UserServices{
     this.user = []
   }
   async create(user){
+
+
     await User.validateOfName(user.name)
     const [response] = await User.createUser(user)
     return response

@@ -1,5 +1,4 @@
 const UserServices = require('../../../services/UserServices')
-const bcrypt = require('bcrypt')
 const GenerateToken = require('../../../utils/GenerateToken')
 
 class UserController{
@@ -11,12 +10,10 @@ class UserController{
 
 
     try{
-      
-      const HashPassword = await bcrypt.hash(password , 10)
-    
+     
       const user = {
         name,
-        password:HashPassword ,
+        password,
         nameGithub,
         projects:[]
       }

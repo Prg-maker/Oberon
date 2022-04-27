@@ -1,6 +1,7 @@
 
 const {v4} = require('uuid')
 const {promisify} = require('util')
+const bcrypt = require('bcrypt')
 
 
 const { readFile, writeFile} = require('fs')
@@ -24,22 +25,28 @@ class UserRepository {
   }
 
   async createUser(user ){
+
     const dados = await  this.getFileAndRead()
     try{
-
       const _id = v4()
+
+
       if(dados.filter(item => item._id == _id ) == 0){
 
+        
+        const HashPassword = await bcrypt.hash(user.password , 10)
+        user = {
+          ...user,
+          password: HashPassword,
+        }
         const userId = {
           _id,
           ...user
         }
-        
         const dadosEnd = [
           userId,
           ...dados
         ]
-        
         await this.writeFile(dadosEnd)
         return dadosEnd
       }

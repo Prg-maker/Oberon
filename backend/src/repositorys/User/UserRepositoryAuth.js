@@ -8,11 +8,13 @@ class UserRepositoryAuth{
   async validateUser(userPass){   
     try{
       const [user] = await this.getUserForName(userPass.name)
+
       const {password} = user
 
       if(!await bcrypto.compare(userPass.password, password)){
         throw new Error('user Invalid password')
       }
+
       return user
 
     }catch(err){
@@ -26,7 +28,9 @@ class UserRepositoryAuth{
 
     try{
       const users = await UserRepository.listAllUsers() 
+
       const user = users.filter(user => user.name === name )
+      
       return user
 
     }catch(err){
