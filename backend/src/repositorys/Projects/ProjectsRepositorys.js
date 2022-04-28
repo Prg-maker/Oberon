@@ -40,52 +40,57 @@ class ProjectsRepositorys {
   }
 
   async createProject(project){
-    const file = await this.getFileAndRead()
-    const usersFile = await this.getFileAndReadUser()
-    try{
 
+    const file = await this.getFileAndRead()
+
+    try{
       if(!project.userId){
         throw new Error('project cannot be created, because user does not exist')
       }
-
       const _id = v4()
-
-      const [user] = await UserRepository.listOneUser(project.userId)
-
+      const [user_tempory] = await UserRepository.listOneUser(project.userId)
+      const user = user_tempory
+      const userFile = await UserRepository.deleteOne(user_tempory._id)
+      const fileUser = await this.getFileAndReadUser()
       if(user == 'u'){
         throw new Error('user does not exist')
       }
-      
       const projectId = {
         _id,
         ...project
       }
-      
       const fileEnd = [
         projectId,
         ...file
       ]
-      
-      
       user.projects.push(projectId)
-      await UserRepository.deleteOne(user._id)
       const userFileEnd = [
-        user,
-        ...usersFile
+        ...fileUser,
+        user
       ]
-      
-      await this.writeFileUser(userFileEnd)
       await this.writeFile(fileEnd)
-
+      await this.writeFileUser(userFileEnd)
       return fileEnd
-     
     }catch(err){
-      throw Error('not create project, try again')
+      throw Error('not create project, try again' )
     }
-
-
   }
 
+
+
+  async listAllProjectUser(userId){
+    const file = await this.getFileAndRead()
+    
+
+    const userAllProject = file.filter(project => {
+      console.log(project.userId)
+    })
+
+    if(userAllProject == 0 ){
+      return {message: "The user does not have any a project"}
+    }
+    return userAllProject
+  }
  
 }
 
