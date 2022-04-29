@@ -43,15 +43,22 @@ class ProjectsRepositorys {
 
     const file = await this.getFileAndRead()
 
+
+
     try{
-      if(!project.userId){
-        throw new Error('project cannot be created, because user does not exist')
-      }
+
       const _id = v4()
+
       const [user_tempory] = await UserRepository.listOneUser(project.userId)
+      console.log(user_tempory)
+
       const user = user_tempory
+
       const userFile = await UserRepository.deleteOne(user_tempory._id)
+      
       const fileUser = await this.getFileAndReadUser()
+
+      
       if(user == 'u'){
         throw new Error('user does not exist')
       }
@@ -60,9 +67,10 @@ class ProjectsRepositorys {
         ...project
       }
       const fileEnd = [
+        ...file,
         projectId,
-        ...file
       ]
+
       user.projects.push(projectId)
       const userFileEnd = [
         ...fileUser,
@@ -72,7 +80,7 @@ class ProjectsRepositorys {
       await this.writeFileUser(userFileEnd)
       return fileEnd
     }catch(err){
-      throw Error('not create project, try again' )
+      throw new Error('not create project, try again')
     }
   }
 
@@ -82,15 +90,65 @@ class ProjectsRepositorys {
     const file = await this.getFileAndRead()
     
 
-    const userAllProject = file.filter(project => {
-      console.log(project.userId)
-    })
+    const userAllProject = file.filter(project => project.userId == userId)
 
     if(userAllProject == 0 ){
       return {message: "The user does not have any a project"}
     }
     return userAllProject
   }
+
+
+  async listOneProject(_id){
+    
+
+
+
+
+    try{
+
+      if(!_id){
+        return {
+          message: "the id was not passed"
+        }
+      }
+
+      const file = await this.getFileAndRead()
+
+      const project = file.filter(project => project._id == _id) 
+  
+      if(project == 0){
+        return {
+          message: "project does not exist"
+        }
+      }
+  
+      return project
+
+    }catch(err){
+      throw new Error('could not list project')
+    }
+  
+    
+  }
+
+  async deleteOneProject(_id){
+    const file = await this.getFileAndRead()
+
+    const index = file.findIndex(item => item._id == _id)
+    console.log(index)
+    if(index == -1){
+      console.log('aqui')
+      throw Error('project does not exist')
+    }
+
+    file.splice(index , 1)
+    await this.writeFile([...file])
+    console.log('aqui')
+
+    return true
+  }
+
  
 }
 

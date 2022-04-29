@@ -36,7 +36,7 @@ describe('testing User' , ()=> {
   })
 
   it('should list a user for id' , async ()=> {
-    const [user] = await User.listOneUser('1')
+    const [user] = await User.listOneUser('942d8a09-d962-40a9-b234-36885e75e39f"')
 
     expect(user).toEqual(usuario_fake)
 

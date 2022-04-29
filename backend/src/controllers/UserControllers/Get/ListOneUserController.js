@@ -1,4 +1,4 @@
-const UserServices = require('../../../services/UserServices')
+const UserServices = require('../../../usecases/User/UserUseCase')
 
 
 class ListUserController {

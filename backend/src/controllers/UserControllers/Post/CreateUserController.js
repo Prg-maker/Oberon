@@ -1,4 +1,6 @@
-const UserServices = require('../../../services/UserServices')
+const UserServices = require('../../../usecases/User/UserUseCase')
+
+
 const GenerateToken = require('../../../utils/GenerateToken')
 
 class UserController{

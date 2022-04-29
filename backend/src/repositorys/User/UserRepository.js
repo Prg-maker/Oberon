@@ -2,7 +2,7 @@
 const {v4} = require('uuid')
 const {promisify} = require('util')
 const bcrypt = require('bcrypt')
-
+const prismaClient = require('../../database/prisma')
 
 const { readFile, writeFile} = require('fs')
 const writeFileAsync = promisify(writeFile)
@@ -94,7 +94,7 @@ class UserRepository {
       const index = file.findIndex(item => item._id == _id)
 
       if(index == -1){
-        throw Error('user not exist')
+        throw Error('user does not exist')
       }
       file.splice(index , 1)
       await this.writeFile([...file])

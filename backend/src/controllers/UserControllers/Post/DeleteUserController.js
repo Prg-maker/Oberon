@@ -1,4 +1,6 @@
-const UserServices = require("../../../services/UserServices")
+const UserServices = require('../../../usecases/User/UserUseCase')
+
+
 
 class DeleteUserController{
   async handle(req ,res){
