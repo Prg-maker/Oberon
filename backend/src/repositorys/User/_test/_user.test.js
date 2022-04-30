@@ -37,11 +37,19 @@ describe('testing User' , ()=> {
 
 
   it('Should   see if there are users, there are no users, it returns a message saying that the user is not' , async ()=> {
-    
+    const user = await User.listAllUsers()
+
+    expect(user).toEqual({
+      message: "There are no users"
+    })
+
   })
 
   it('should list as users', async()=> {
-
+    
+    const user = await User.listAllUsers()
+    console.log(user)
+    expect(user)
 
   })
 

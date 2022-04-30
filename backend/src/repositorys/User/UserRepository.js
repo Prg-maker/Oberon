@@ -20,7 +20,6 @@ class UserRepository {
   
       if(!userAlredyExist){
         const HashPassword = await bcrypt.hash(password , 10)
-
         const userCreate = await prismaClient.user.create({
           data:{
             name,
@@ -28,14 +27,12 @@ class UserRepository {
             nameGithub
           }
         })
-    
         return userCreate
       }
 
       return {
         message: "could not create user"
       }
-
     }catch(err){
       throw new Error('could not create user')
     }
@@ -44,7 +41,21 @@ class UserRepository {
 
   async listAllUsers(){
 
+    try{
+
+      const users = await prismaClient.user.findMany()
+
+      if(!users){
+        return {
+          message: "There are no users"
+        }
+      }
   
+      return users
+
+    }catch(err){
+      throw new Error('Could not list all users')
+    }
   }
 
   async listOneUser(_id){
