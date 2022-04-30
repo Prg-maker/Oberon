@@ -1,74 +1,50 @@
 
 const {v4} = require('uuid')
-const {promisify} = require('util')
 const bcrypt = require('bcrypt')
 const prismaClient = require('../../database/prisma')
 
-const { readFile, writeFile} = require('fs')
-const writeFileAsync = promisify(writeFile)
-const readFileAssync = promisify(readFile)
 
 class UserRepository {
-  constructor(){
-    this.pathFile = './src/repositorys/User/user.json'
-  }
 
-   async getFileAndRead(){
-    const file = await readFileAssync(this.pathFile)
-    return JSON.parse(file.toString())
-  }
 
-  async writeFile(dados){
-    await writeFileAsync(this.pathFile , JSON.stringify(dados))
 
-    return true
-  }
-
-  async createUser(user ){
-
-    const dados = await  this.getFileAndRead()
+  async createUser(user){
     try{
-      const _id = v4()
 
-
-      if(dados.filter(item => item._id == _id ) == 0){
-
-        
-        const HashPassword = await bcrypt.hash(user.password , 10)
-        user = {
-          ...user,
-          password: HashPassword,
+      const {name , password ,  nameGithub } = user
+      const userAlredyExist = await prismaClient.user.findFirst({
+        where:{
+          name
         }
-        const userId = {
-          _id,
-          ...user
-        }
-        const dadosEnd = [
-          userId,
-          ...dados
-        ]
-        await this.writeFile(dadosEnd)
-        return dadosEnd
+      })
+  
+      if(!userAlredyExist){
+        const HashPassword = await bcrypt.hash(password , 10)
+
+        const userCreate = await prismaClient.user.create({
+          data:{
+            name,
+            password: HashPassword,
+            nameGithub
+          }
+        })
+    
+        return userCreate
       }
+
+      return {
+        message: "could not create user"
+      }
+
     }catch(err){
-      throw new  Error('user not create' )
+      throw new Error('could not create user')
     }
   }
 
 
   async listAllUsers(){
 
-    try{
-      const file = await this.getFileAndRead()
-
-      if(file == 0){
-        return 'not have   users'
-      }
-      return file
-
-    }catch(err){
-      throw Error('no is possible to list user')
-    }
+  
   }
 
   async listOneUser(_id){
@@ -105,23 +81,7 @@ class UserRepository {
     }
   }
   
-  async validateOfName(name){
-    const users  = await this.listAllUsers()
-    const validate = users.filter(user => user.name == name )
-
-    // validando se o validate é diferente de 0, que no caso vazio, caso seja diferente de vazio
-    // retorna um erro 
-    //validating if the validate is different from 0, which in the empty case, in case it is different from empty
-    //to return error
-
-    if(validate != 0){  
-      throw new Error('the name is already being used')
-    } 
-
-
-    return
-
-  }
+ 
 }
 
 module.exports = new UserRepository()
