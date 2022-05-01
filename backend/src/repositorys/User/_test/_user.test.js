@@ -4,7 +4,7 @@ const User = require('../UserRepository')
 
 
 const usuario_cadastrar = {
-  name: 'daniel213',
+  name: 'usuario_fake_test',
   password: 'daniell123',
   nameGithub: 'Prg-Maker',
   projects:[]
@@ -46,28 +46,54 @@ describe('testing User' , ()=> {
   })
 
   it('should list as users', async()=> {
+
+    const users = await User.listAllUsers()
+    expect(users)
+
+  })
+
+  it('should show one message if the user does not exist ' , async ()=> {
+    const user = await User.listOneUser('1')
+
+
+    expect(user).toEqual({
+      message: "user does not exist"
+    })
     
-    const user = await User.listAllUsers()
-    console.log(user)
-    expect(user)
 
   })
-
-
-  /*
+  
+  
   it('should list a user for id' , async ()=> {
-    const [user] = await User.listOneUser('942d8a09-d962-40a9-b234-36885e75e39f"')
+  
+    const user = await User.listOneUser('a50da4d3-bc74-429b-beb1-d742edda9c4e')
 
-    expect(user).toEqual(usuario_fake)
+    expect(user).toEqual(
+      {
+        "id": "a50da4d3-bc74-429b-beb1-d742edda9c4e",
+        "name": "daniel213",
+        "password":"$2b$10$Fq2zj3U7OxWbFXcmD1HZ7.2wwzTAY9nyHd95pGzzdP0gXwFYE/kTq",
+        "nameGithub":"Prg-Maker"
+      }
+    )
 
   })
 
+   
   it('should delete a user for id' , async ()=> {
-    const USER_NOT_LIST = await User.listOneUser('1')
 
-    const user = await User.deleteOne('f572edb6-3450-4133-bad8-4847246fb782')
-    expect(user).not.toEqual(USER_NOT_LIST)
-  })*/
+    const id_fake = '5d050d6a-73f5-4770-ad1e-22743ac5e364'
+    const user = await User.listOneUser(id_fake)
+
+
+    const sut = await User.deleteOne(id_fake)
+
+    expect(sut).toEqual(user)
+
+
+  })
+  
+
 
 
 })

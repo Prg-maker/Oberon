@@ -59,38 +59,52 @@ class UserRepository {
   }
 
   async listOneUser(_id){
+
     try{
-
-      const file = await this.getFileAndRead()
-      const user = file.filter(user =>  user._id === _id)
-
-      if(user == 0 ){
-        return 'user not exist, try again'
+      const user = await prismaClient.user.findUnique({
+        where:{
+          id: _id
+        }
+      })
+  
+      if(user == null){
+        return {
+          message: "user does not exist"
+        }
       }
+  
       return user
     }catch(err){
-      throw Error('no is possible to list user')
+      throw new Error('does not possible to list user ')
     }
-  }
-  async deleteOne(_id){
+  } 
+
+
+  async deleteOne(id){
+
+
+   
+
+
     try{
-      const file = await this.getFileAndRead()
 
-      const [user] = await this.listOneUser(_id)
+      const userDelete = await prismaClient.user.delete({
+        where:{
+          id
+        }
+      })
 
-      const index = file.findIndex(item => item._id == _id)
 
-      if(index == -1){
-        throw Error('user does not exist')
-      }
-      file.splice(index , 1)
-      await this.writeFile([...file])
-      return user
+      return userDelete
+
+      
 
     }catch(err){
-      throw Error('user not delete')
+      throw new Error('User does not exist')
     }
+   
   }
+
   
  
 }
