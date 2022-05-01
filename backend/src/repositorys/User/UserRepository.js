@@ -45,12 +45,7 @@ class UserRepository {
 
       const users = await prismaClient.user.findMany()
 
-      if(!users){
-        return {
-          message: "There are no users"
-        }
-      }
-  
+ 
       return users
 
     }catch(err){

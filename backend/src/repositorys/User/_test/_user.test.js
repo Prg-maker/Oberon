@@ -36,14 +36,7 @@ describe('testing User' , ()=> {
   })
 
 
-  it('Should   see if there are users, there are no users, it returns a message saying that the user is not' , async ()=> {
-    const user = await User.listAllUsers()
 
-    expect(user).toEqual({
-      message: "There are no users"
-    })
-
-  })
 
   it('should list as users', async()=> {
 
@@ -65,28 +58,23 @@ describe('testing User' , ()=> {
   
   
   it('should list a user for id' , async ()=> {
-  
-    const user = await User.listOneUser('a50da4d3-bc74-429b-beb1-d742edda9c4e')
+    
+    const id = '86bb594a-a6fe-4a47-81db-3a907990ac1d'
 
-    expect(user).toEqual(
-      {
-        "id": "a50da4d3-bc74-429b-beb1-d742edda9c4e",
-        "name": "daniel213",
-        "password":"$2b$10$Fq2zj3U7OxWbFXcmD1HZ7.2wwzTAY9nyHd95pGzzdP0gXwFYE/kTq",
-        "nameGithub":"Prg-Maker"
-      }
-    )
+    const user = await User.listOneUser(id)
+
+    expect(user.id).toEqual(id)
 
   })
 
    
   it('should delete a user for id' , async ()=> {
+    const users = await User.listAllUsers()
 
-    const id_fake = '5d050d6a-73f5-4770-ad1e-22743ac5e364'
-    const user = await User.listOneUser(id_fake)
+    const user = await User.listOneUser(users[0].id)
 
 
-    const sut = await User.deleteOne(id_fake)
+    const sut = await User.deleteOne(users[0].id)
 
     expect(sut).toEqual(user)
 
