@@ -1,33 +1,36 @@
-const User = require('../../repositorys/User/UserRepository')
+const UserRepository = require('../../repositorys/User/UserRepository')
 
-class UserServices{ 
+class UserUseCase{ 
   
-  constructor(){
-    this.user = []
-  }
+
   async create(user){
 
 
-    await User.validateOfName(user.name)
-    const [response] = await User.createUser(user)
-    return response
+
+    const User = await UserRepository.createUser(user)
+
+    if(User== undefined){
+      return {
+        message: "user does not create"
+      }
+    }
+
+    return User
+
   }
 
   async listOneUser(userId){
-    const response = await User.listOneUser(userId)
-    return response
+   
   }
 
   async listAllUser(){
-    const response = await User.listAllUsers()
-    return response
+ 
   } 
 
   async delete(userId){
-    const response = await User.deleteOne(userId)
-    return response
+
   }
   
 }
 
-module.exports = new UserServices()
+module.exports = new UserUseCase()
