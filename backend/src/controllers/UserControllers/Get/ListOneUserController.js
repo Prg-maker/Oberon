@@ -11,7 +11,7 @@ class ListUserController {
 
       const user = await UserServices.listOneUser(_id)
       
-      delete user[0].password
+      delete user.password
       
       return res.json(user)
       

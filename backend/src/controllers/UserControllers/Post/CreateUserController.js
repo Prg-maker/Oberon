@@ -23,6 +23,7 @@ class UserController{
       const UserCreate = await UserServices.create(user)
       
       const id = UserCreate._id
+      
       delete UserCreate.password
       
       return res.json({
