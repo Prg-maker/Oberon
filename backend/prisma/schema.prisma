@@ -15,5 +15,18 @@ model User{
   name String
   password String
   nameGithub String?
+  Projects Projects[]
+}
+
+model Projects{
+  id String @id 
+  user User @relation(fields: [userId] , references: [id])
+  userId String
+  title String
+  details String
+  repositoryGit String?
+  progress String?
+  createdAt DateTime @default(now())
+  updatedAt  DateTime @updatedAt()
 }
 

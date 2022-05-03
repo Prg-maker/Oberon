@@ -1,5 +1,4 @@
 const ProjectsRepositorys = require('../ProjectsRepositorys')
-const UserRepository = require('../../User/UserRepository')
 
 const Project_Test = {
   "userId": "0646f0eb-9e2f-4ceb-91b7-583c6e99b3ed",

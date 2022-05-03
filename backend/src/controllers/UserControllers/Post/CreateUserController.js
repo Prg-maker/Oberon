@@ -26,6 +26,12 @@ class UserController{
       
       delete UserCreate.password
       
+      if(UserCreate.message){
+        return res.status(400).send({
+          message:'User not create,  try with another name'
+        })
+      }
+
       return res.json({
         UserCreate,
         token: GenerateToken({id})
