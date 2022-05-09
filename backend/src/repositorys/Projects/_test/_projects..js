@@ -36,9 +36,9 @@ describe('testing project' , ()=> {
   })
 
   it('should create one project' , async ()=> {
-    //const sut = await ProjectsRepositorys.createProject(Project_Test_fake)
+    const sut = await ProjectsRepositorys.createProject(Project_Test_fake)
 
-    //expect(sut).toBeTruthy()
+    expect(sut).toBeTruthy()
   })
 
   it('should verify if the user dost exist' , async ()=> {
@@ -99,16 +99,25 @@ describe('testing project' , ()=> {
   it('should check if the id was passed' ,async () => {
        
     return ProjectsRepositorys.deleteOneProject('').catch(sut => {
-      expect(sut).rejects.toThrowError()
+      expect(sut).rejects.toThrow()
     })
 
   })
 
   it('should check if the project exists' ,async () => {
+      
+    return ProjectsRepositorys.deleteOneProject('12').catch(sut => {
+      expect(sut).rejects.toThrow({
+        message:"project does not exist"
+      })
+    })
 
   })
   
   it('Should delete one project by id' , async ()=> {
+    const sut = await ProjectsRepositorys.deleteOneProject('f348ce57-130a-4848-91ba-10dd3e1df65b')
+
+    expect(sut).toBeTruthy()
 
   })
 

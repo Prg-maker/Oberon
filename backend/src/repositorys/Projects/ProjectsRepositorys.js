@@ -100,6 +100,22 @@ class ProjectsRepositorys {
         message: "id was not passed"
       }
     }
+
+    try{
+
+      await prismaClient.projects.delete({
+        where:{
+          id
+        }
+      })
+
+      return true
+
+    }catch(err){
+      return {
+        message:"project does not exist"
+      }
+    }
    
   }
  
