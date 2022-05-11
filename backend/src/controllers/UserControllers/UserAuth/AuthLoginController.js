@@ -13,8 +13,8 @@ class AuthLoginController {
 
     try{
       const user = await AuthUseCase.auth(Auth)
-      delete user.password,
-      delete user._id
+
+      
       return res.json({
         user,
         token: GenerateToken(user)

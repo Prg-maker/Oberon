@@ -22,7 +22,7 @@ class UserController{
   
       const UserCreate = await UserServices.create(user)
       
-      const id = UserCreate._id
+      const id = UserCreate.id
       
       delete UserCreate.password
       

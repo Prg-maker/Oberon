@@ -53,12 +53,12 @@ class UserRepository {
     }
   }
 
-  async listOneUser(_id){
+  async listOneUser(id){
 
     try{
       const user = await prismaClient.user.findUnique({
         where:{
-          id: _id
+          id: id
         }
       })
   

@@ -6,8 +6,8 @@ class DeleteUserController{
   async handle(req ,res){
 
     try{
-      const {_id} = req.body
-      const tryDeleteUser = await UserServices.delete(_id) 
+      const {id} = req.body
+      const tryDeleteUser = await UserServices.delete(id) 
   
       return res.json(tryDeleteUser)
     }catch(err){
