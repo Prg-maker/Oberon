@@ -32,7 +32,7 @@ export default createGlobalStyle`
   }
 
   *,button , input{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inter', sans-serif;
   }
   html , body ,#root{
     height:100vh;
