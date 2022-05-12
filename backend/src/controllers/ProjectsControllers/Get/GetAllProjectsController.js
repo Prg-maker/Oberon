@@ -4,6 +4,13 @@ class GetAllProjectsController{
   async handle(req , res){
     
     const userId= req.userId  
+    
+    if(!userId){
+      return res.status(400).send({
+        error:"userId does not exist"
+      })
+    }
+
 
     try{
       const projects = await ProjectUseCase.listAllProject(userId)
@@ -11,7 +18,7 @@ class GetAllProjectsController{
       return res.status(200).json(projects)
     }catch(err){
       return res.status(404).send({
-        message:"não foi póssivel listar os projetos"
+        message:"Could not list projects"
       })
     }
 
