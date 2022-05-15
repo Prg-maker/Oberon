@@ -3,7 +3,7 @@ import {createGlobalStyle} from 'styled-components'
 export default createGlobalStyle`
   #root{
     --color-bck: #302B27;
-    --color-primary_text: #F5F3F5;
+    --color-primary_text: #F5F3F5;  
     --color-bck_gray: #C4C4C4;
 
 
