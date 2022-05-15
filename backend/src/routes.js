@@ -12,7 +12,8 @@ const {
 const {
   GetAllProjectsController,
   CreateProjectsController,
-  GetOneProjectController
+  GetOneProjectController,
+  DeleteOneProjectController
 } = require('./controllers/ProjectsControllers')
 
 
@@ -28,6 +29,7 @@ const router = Router()
 router.get('/project/:id' , auth ,  new GetOneProjectController().handle)
 router.get('/projects' , auth ,  new GetAllProjectsController().handle)
 router.post('/project' , auth ,  new CreateProjectsController().handle)
+router.delete('/project' , auth ,  new DeleteOneProjectController().handle)
 
 
 
