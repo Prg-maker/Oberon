@@ -1,3 +1,4 @@
+import { Card } from '../Card'
 import { CardCreate } from '../CardCreate'
 import {
   Container
@@ -8,6 +9,8 @@ export function Cards(){
   return(
     <Container>
       <CardCreate/>
+      <Card/>
+      <Card/>
     </Container>
   )
 }

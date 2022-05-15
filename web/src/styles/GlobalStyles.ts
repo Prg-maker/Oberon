@@ -13,7 +13,7 @@ export default createGlobalStyle`
     --color-text-black: #000000;
     --color-bck-white: #fff;
 
-
+    --color-card:#576CA8;
 
     --color-progress_red:#AD2E24 ;
     --color-progress_yellow:#FBCD2B;
