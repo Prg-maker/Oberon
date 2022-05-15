@@ -38,6 +38,9 @@ export default createGlobalStyle`
     height:100vh;
     overflow-y: none;
   }
+  html,body{
+    background-color:#302B27 ;
+  }
   button, input {
     outline: none;
     border:none;
