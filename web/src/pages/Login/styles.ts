@@ -10,41 +10,23 @@ export const Container = styled.div`
     height: 200px;
     margin-top: 15px;
     margin-bottom:74px;
+    border-radius: 50%;
   }
 
 `;
 
 
 export const Form = styled.div`
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-template-rows:   auto auto;
-  position:relative;
-
-  .github{
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    bottom: 15px;
-    strong{
-      font-style: normal;
-      font-weight: 700;
-      font-size: 12px;
-
-      color: var(--color-bck_gray);
-    }
-  }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 
   .name{
-    margin-right: 50px;
     padding-bottom: 50px;
   }
 
 
-  @media(max-width: 700px){
-    display: flex;
-    flex-direction: column;
-  }
   
 `
 export const Title = styled.div`
@@ -56,10 +38,13 @@ export const Title = styled.div`
   color: var(--color-bck-white);
 `
 export const Input = styled.input`
-  width: 311px;
-  height: 40px;
-  left: 363px;
-  top: 347px;
+  max-width: 31rem;
+  min-width: 25rem;
+  height: 50px;
+  
+
+
+
   padding-left: 10px;
 
   background: #FFFFFF;
@@ -68,7 +53,6 @@ export const Input = styled.input`
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
-  margin-top: 5px;
   color: #000000;
 
   &::placeholder{
@@ -80,7 +64,7 @@ export const Input = styled.input`
   }
 `
 
-export const ButtonCreateProfile = styled.button`
+export const ButtonEnterInProfile = styled.button`
   width: 150px;
   height: 45px;
   border-radius: 7px;
@@ -88,9 +72,7 @@ export const ButtonCreateProfile = styled.button`
   align-items: center;
   padding-left: 15px;
   cursor: pointer;
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  
   gap: 20px;
   font-style: normal;
   font-weight: 700;
@@ -102,6 +84,8 @@ export const ButtonCreateProfile = styled.button`
 
   background: var(--color-text_secondary);
 
+
+  margin-top: 50px ;
 
   &:hover{
     gap: 30px;

@@ -3,19 +3,17 @@ import {
   Form,
   Title,
   Input,
-  ButtonCreateProfile
+  ButtonEnterInProfile
 } from './styles'
-
-import OberonImg from '../../assets/Ellipse.png'
 
 import {ArrowRight} from 'phosphor-react'
     
     
-export function CreateProject(){
+export function Login(){
   return(
     <Container>
       <div>
-        <img src={OberonImg} alt="Oberon"  />
+        <img src="https://github.com/Prg-maker.png" alt="Oberon"  />
       </div>
 
       <Form>
@@ -27,25 +25,19 @@ export function CreateProject(){
         </div>
 
 
-        <div className='github'>
-          <label htmlFor="github">Perfil do github</label>
-          <Title>Perfil do github</Title>
-          <strong>opcional*</strong>
-          <Input placeholder='Perfil do github' type="text" id='github'/>
-        </div>
+    
 
-
-        <div className='github'>
+        <div className='password'>
           <label htmlFor="senha">Senha</label>
             <Title>Senha</Title>
             <Input placeholder='Senha' type="password" id='senha'/>
         </div>
         
 
-        <ButtonCreateProfile>
-          Criar
+        <ButtonEnterInProfile>
+          Entrar
           <ArrowRight size={25} weight="bold" />
-        </ButtonCreateProfile>
+        </ButtonEnterInProfile>
 
       </Form>
       
