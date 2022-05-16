@@ -6,7 +6,7 @@ export const Container = styled.div`
   top: 0;
   margin-right: 50px;
   margin-top: 6.5rem;
-
+  z-index: 15;
   width: 275px;
   height: 230px;
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), #393939;

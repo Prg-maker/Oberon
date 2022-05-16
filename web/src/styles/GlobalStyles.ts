@@ -5,6 +5,8 @@ export default createGlobalStyle`
     --color-bck: #302B27;
     --color-primary_text: #F5F3F5;  
     --color-bck_gray: #C4C4C4;
+
+    --color-bck-cardP: #393939;
     
 
 

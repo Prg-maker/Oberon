@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { CardsProject } from '../../components/CardsProject'
 import { DetailsProject } from '../../components/DetailsProjects'
 import { Header } from '../../components/Header'
 import {
@@ -22,6 +23,8 @@ export function Projects(){
       {
         isOpenDetailsProject && <DetailsProject/>
       }
+
+      <CardsProject/>
     </Container>
   )
 }

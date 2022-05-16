@@ -12,6 +12,7 @@ export const OptionsContainer= styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 10px  ;
+  z-index: 10;
 
 
   right: -90px;
