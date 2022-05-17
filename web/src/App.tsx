@@ -1,14 +1,14 @@
 import { Login } from "./pages/Login"
-import { Home } from "./pages/Home"
-import GlobalStyles from "./styles/GlobalStyles"
 import { Projects } from "./pages/Projects"
+import GlobalStyles from "./styles/GlobalStyles"
+import { CreateProject } from "./pages/CreateProject"
 
 function App() {
 
   return (
 
     <>
-      <Projects/>
+      <CreateProject/>
       <GlobalStyles/>
     </>
   )
