@@ -15,6 +15,11 @@ export const Container = styled.div`
     padding-top:10px;
   }
 
+  @media (max-width:600px) {
+    height: 300px;
+    padding-bottom:30px;
+  }
+
 `;
 
 export const Status = styled.p`

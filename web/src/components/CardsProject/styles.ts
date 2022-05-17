@@ -16,8 +16,21 @@ export const Container = styled.div`
   overflow:scroll;
 
 
+
   &::-webkit-scrollbar{
     background: var(--color-bck);
   }   
 
+
+  @media(max-width:970px){
+    display: grid;
+    grid-template-columns: auto auto  ;
+    grid-template-areas: auto auto auto auto auto ;
+  }
+
+  @media(max-width:600px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;

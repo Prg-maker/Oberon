@@ -13,6 +13,12 @@ export const Container = styled.div`
   z-index: 10;
   right: -140px;
 
+
+  @media (max-width:600px) {
+    right: 0;
+    bottom: 50px;
+  }
+
 `;
 
 
