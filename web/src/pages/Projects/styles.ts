@@ -3,4 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   overflow-y: hidden;
   height: 100%;
+  padding-top: 33px;
+
 `;
