@@ -2,7 +2,7 @@ import styled , {css} from 'styled-components';
 
 export const Container = styled.div`
   position: absolute;
-  left: 20px;
+  right: 20px;
   top: 0;
   margin-right: 50px;
   margin-top: 6.5rem;
@@ -32,6 +32,11 @@ export const Container = styled.div`
     background: #274690;
     margin-right: 10px;
 
+  }
+
+  @media(max-width:500px){
+    left: 20px;
+    
   }
 
 

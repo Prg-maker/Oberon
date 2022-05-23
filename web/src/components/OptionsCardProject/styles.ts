@@ -3,15 +3,17 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: 150px;
   height: 100px;
-  position: absolute;
   background-color:var(--color-bck_details);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  position: absolute;
   z-index: 10;
-  right: -140px;
+  left: 20px;
+  top:20px;
 
 
   @media (max-width:600px) {

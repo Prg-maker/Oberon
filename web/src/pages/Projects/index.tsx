@@ -11,12 +11,6 @@ import {
 
     
 export function Projects(){
-  const [isOpenDetailsProject , setIsOpenDetailsProject] = useState(false)
-
-  function toggleOpenDetailsProject(){
-    setIsOpenDetailsProject(!isOpenDetailsProject)
-  }
-
 
   return(
     <Container>

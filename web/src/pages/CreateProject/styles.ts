@@ -18,7 +18,10 @@ export const ContainerWrapper = styled.form`
   align-items: center;
   padding-left: 133px;
 
- 
+  .button{
+    position: relative;
+    left: 55px;
+  }
 
   @media(max-width: 1000px){
     display: flex;
@@ -31,19 +34,24 @@ export const ContainerWrapper = styled.form`
     .name{
       margin-top: 20px;
     }
-    .button{
-      position: absolute;
-      bottom: 40px;
-      right: 60px;
-    }
+
   
+  }
+  
+
+  @media(max-width: 500px){
+    overflow: hidden;
+    width: 80%;
+    .button{
+      padding: 50px;
+    }
   }
 
 `
 export const Title = styled.p`
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   margin-bottom: 30px;  
   color: #FFFFFF;
 
@@ -51,14 +59,21 @@ export const Title = styled.p`
     margin-bottom: 15px;  
   }
 
+  @media(max-width: 500px){
+    font-size: 0.7rem;
+    
+  }
 
+  @media(max-height: 500px){
+    display:none ;
+  }
 `
 export const Input = styled.input`
   width: 80%;
   height: 4rem;
   border-radius: 7px;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 24px;
   padding-left: 5px;
   text-overflow: ellipsis;
@@ -78,13 +93,18 @@ export const Input = styled.input`
 
 
   @media(max-width: 500px){
-    width: 50%;
+    width: 100%;
     height: 2rem;
+    font-size: 0.7rem;
+    padding: 0 20px;
+
   }
+
+
 
 `
 export const TextArea = styled.textarea`
-  width: 80%;
+  width: 100%;
   height: 181px;
   resize: none;
   outline: none;
@@ -123,7 +143,16 @@ export const TextArea = styled.textarea`
 
   @media(max-width: 1000px){
     width: 100%;
+    padding: 5px 20px;
     flex-direction: column  ;
+  }
+
+
+  @media(max-width: 500px){
+    width: 100%;
+    height: 7rem;
+    font-size: 0.7rem;
+    padding: 0 10px;
   }
 
 `

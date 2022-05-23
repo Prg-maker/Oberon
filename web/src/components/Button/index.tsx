@@ -12,7 +12,7 @@ export function ButtonSubmitComponent({title}:PropsButton){
   return(
     <ButtonSubmit>
         {title}
-        <ArrowRight size={25} weight="bold" />
+        <ArrowRight className='arrow' size={25} weight="bold" />
     </ButtonSubmit>
   )
 }

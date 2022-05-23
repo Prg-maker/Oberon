@@ -27,6 +27,15 @@ export const ButtonSubmit = styled.button`
   }
 
 
-  @media(max-width: 1000px){
+
+
+  @media(max-width: 500px){
+    width: 7rem;
+    font-size: .8rem;
+    .arrow{
+      width: 18px;
+    }
+
   }
+
 `;
