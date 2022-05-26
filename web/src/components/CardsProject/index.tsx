@@ -9,9 +9,8 @@ export function CardsProject(){
     <Container>
       <CardProject/>
       <CardProject/>
-      <CardProject/>
-      <CardProject/>  
-      <CardProject/>  
+     
+     
       
     </Container>
   )

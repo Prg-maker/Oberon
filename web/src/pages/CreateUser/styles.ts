@@ -5,11 +5,21 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  >div{
+    margin-top: 20px;
+  }
+
   img{
-    width: 200px;
-    height: 200px;
-    margin-top: 15px;
+    width: 12.5rem;
+    height: 12.5rem;
     margin-bottom:74px;
+
+    @media(max-width: 700px){
+    display: flex;
+    flex-direction: column;
+    margin: 0 25px;
+    }
   }
 
 `;
@@ -20,12 +30,14 @@ export const Form = styled.div`
   grid-template-columns: auto auto;
   grid-template-rows:   auto auto;
   position:relative;
-
   .github{
     display: flex;
     flex-direction: column;
     position: relative;
-    bottom: 15px;
+    bottom: 20px;
+    padding-bottom: 25px;
+   
+
     strong{
       font-style: normal;
       font-weight: 700;
@@ -33,6 +45,13 @@ export const Form = styled.div`
 
       color: var(--color-bck_gray);
     }
+  }
+
+  .senha{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    bottom: 15px;
   }
 
   .name{
@@ -44,6 +63,12 @@ export const Form = styled.div`
   @media(max-width: 700px){
     display: flex;
     flex-direction: column;
+    margin: 0 25px;
+    div{
+      width: 100%;
+    }
+
+   
   }
   
 `
@@ -56,8 +81,8 @@ export const Title = styled.div`
   color: var(--color-bck-white);
 `
 export const Input = styled.input`
-  width: 311px;
-  height: 40px;
+  width: 20rem;
+  height: 2.5rem;
   left: 363px;
   top: 347px;
   padding-left: 10px;
@@ -70,6 +95,7 @@ export const Input = styled.input`
   font-size: 16px;
   margin-top: 5px;
   color: #000000;
+  border: 1px solid white;
 
   &::placeholder{
     font-size: 14px;
@@ -78,6 +104,12 @@ export const Input = styled.input`
   &:focus , &:hover{
     border: 1px solid orange;
   }
+
+
+  @media(max-width: 700px){
+    width: 100%;
+  }
+
 `
 
 export const ButtonCreateProfile = styled.button`
@@ -107,5 +139,10 @@ export const ButtonCreateProfile = styled.button`
     gap: 30px;
     transition: 0.2s;
     filter:brightness(1.5);
+  }
+
+  @media (max-width:800px) {
+    position: relative;
+    left: 45%;
   }
 `

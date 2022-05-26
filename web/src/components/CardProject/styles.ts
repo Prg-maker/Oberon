@@ -6,6 +6,7 @@ export const Container = styled.div`
   background: var(--color-bck-cardP);
   border-radius: 10px;
   position: relative;
+  z-index: 10;
   .header{
     display: flex;
     align-items: center;

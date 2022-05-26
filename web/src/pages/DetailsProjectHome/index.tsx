@@ -22,6 +22,11 @@ export function DetailsProjectHome() {
             repellat corporis esse soluta, dolorem magnam quod consequatur error
             odit modi, optio rem quia? Vero laborum assumenda, iste velit
             deleniti earum.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
+            repellat corporis esse soluta, dolorem magnam quod consequatur error
+            odit modi, optio rem quia? Vero laborum assumenda, iste velit
+            deleniti earum.
+           
           </Details>
         </div>
 

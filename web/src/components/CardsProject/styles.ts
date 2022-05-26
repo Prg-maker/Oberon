@@ -15,8 +15,6 @@ export const Container = styled.div`
   grid-template-areas: auto auto auto auto auto ;
   overflow:scroll;
 
-
-
   &::-webkit-scrollbar{
     background: var(--color-bck);
   }   
@@ -31,6 +29,8 @@ export const Container = styled.div`
   @media(max-width:600px){
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+    margin-left: 55px;
   }
 `;

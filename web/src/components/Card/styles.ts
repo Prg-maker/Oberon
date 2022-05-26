@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 15rem;
-  min-width: 15rem;
+  width: 15rem;
+  width: 15rem;
   height: 15rem;
   background: var( --color-card);
   border-radius: 10px;
@@ -11,6 +11,12 @@ export const Container = styled.div`
   flex-direction: column;
   align-items:center;
   color: var(--color-primary_text);
+
+  @media (max-width: 600px) {
+    max-width: 50%;
+    max-height:100%;
+  }
+
   >div{
     width: 100%;
     margin-top:1.5rem;

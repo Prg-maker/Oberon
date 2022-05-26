@@ -11,7 +11,7 @@ import OberonImg from '../../assets/Ellipse.png'
 import {ArrowRight} from 'phosphor-react'
     
     
-export function CreateProject(){
+export function CreateUser(){
   return(
     <Container>
       <div>
@@ -35,7 +35,7 @@ export function CreateProject(){
         </div>
 
 
-        <div className='github'>
+        <div className='senha'>
           <label htmlFor="senha">Senha</label>
             <Title>Senha</Title>
             <Input placeholder='Senha' type="password" id='senha'/>

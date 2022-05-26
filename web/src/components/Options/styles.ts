@@ -17,6 +17,14 @@ export const OptionsContainer= styled.div`
 
   right: -90px;
   top: 0;
+
+
+  @media (max-width: 600px) {
+   
+    right: 0px;
+    top: 20px;
+  }
+
 `;
 
 

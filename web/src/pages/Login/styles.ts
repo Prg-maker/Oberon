@@ -5,12 +5,22 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow-y: hidden;
   img{
-    width: 200px;
-    height: 200px;
+    width: 12.5rem;
+    height: 12.5rem;
+   
     margin-top: 15px;
-    margin-bottom:74px;
+    margin-bottom:4.625rem;
     border-radius: 50%;
+
+    @media (max-width:600px) {
+      width: 6rem;
+      height: 6rem;
+      @media (max-height:480px) {
+        margin-bottom: 2rem;
+      } 
+    }
   }
 
 `;
@@ -25,8 +35,8 @@ export const Form = styled.div`
   .name{
     padding-bottom: 50px;
   }
-
-
+ 
+ 
   
 `
 export const Title = styled.div`
@@ -38,10 +48,9 @@ export const Title = styled.div`
   color: var(--color-bck-white);
 `
 export const Input = styled.input`
-  max-width: 31rem;
   min-width: 25rem;
   height: 50px;
-  
+
 
 
 
@@ -54,13 +63,22 @@ export const Input = styled.input`
   font-weight: 700;
   font-size: 16px;
   color: #000000;
+  border: 2px solid #fff;
 
   &::placeholder{
     font-size: 14px;
   }
 
   &:focus , &:hover{
-    border: 1px solid orange;
+    border: 2px solid orange;
+  }
+
+  @media (max-width:600px) {
+    min-width: 50%;
+    min-height: 25%;
+  }
+
+  @media (max-width:300px) {
   }
 `
 
