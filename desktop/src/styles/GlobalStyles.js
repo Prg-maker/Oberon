@@ -12,6 +12,7 @@ export default createGlobalStyle`
     --color-text_delete : #AD2E24;
     --color-text-black: #000000;
     --color-bck-white: #fff;
+    --color-card:#576CA8;
 
 
 

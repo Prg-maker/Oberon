@@ -1,3 +1,4 @@
+import { Cards } from '../../components/Cards'
 import {
   Container,
 } from './styles'
@@ -6,7 +7,7 @@ import {
 export function Home(){
   return(
     <Container>
-      <h1>Aqui</h1>
+      <Cards/>
     </Container>
   )
 }
