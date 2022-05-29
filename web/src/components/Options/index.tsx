@@ -1,29 +1,34 @@
+import { api } from '../../services/api'
 import {
   OptionsContainer,
   ButtonLogin,
   Separete,
   ButtonDelete,
 } from './styles'
-    
 interface PropsOptions{
   id:string
 }
 
 export function Options({id}:PropsOptions){
 
-  async function DeleteOneProfile(){
-    console.log('aqui')
+  async function DeleteOneProfile(){   
+    await api.delete('/delete' , {
+      data:{
+        id
+      }
+    })
+
+    document.location.reload()
   } 
-  console.log('aqui')
 
   return(
-    <OptionsContainer  onClick={DeleteOneProfile}>
-      <ButtonLogin>
+    <OptionsContainer  >
+      <ButtonLogin >
         Entrar
       </ButtonLogin>
 
       <Separete/>
-      <ButtonDelete>
+      <ButtonDelete onClick={DeleteOneProfile}>
         Deletar
       </ButtonDelete>
     </OptionsContainer>

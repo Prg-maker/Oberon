@@ -1,11 +1,11 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
+import { api } from '../../services/api'
 import { Card } from '../Card'
 import { CardCreate } from '../CardCreate'
 import {
   Container
 } from './styles'
-
 interface PropsListUsers{
   id:string;
   name:string;
@@ -20,7 +20,7 @@ export function Cards(){
 
   useEffect(()=> {
     async function getAccounts(){
-      const {data } = await axios.get('http://localhost:3001/') 
+      const {data } = await api.get('/') 
       setListUsers(data)
     }
     getAccounts()
