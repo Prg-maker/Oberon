@@ -99,7 +99,9 @@ export const Details = styled.p`
     overflow: auto;
     border-bottom:none;
   }
-
+  @media (max-height: 490px) {
+    height: 100px;
+  }
 `
 export const Repository = styled.div`
   @media (min-width: 400px) {

@@ -5,10 +5,19 @@ import {
   ButtonDelete,
 } from './styles'
     
-    
-export function Options(){
+interface PropsOptions{
+  id:string
+}
+
+export function Options({id}:PropsOptions){
+
+  async function DeleteOneProfile(){
+    console.log('aqui')
+  } 
+  console.log('aqui')
+
   return(
-    <OptionsContainer>
+    <OptionsContainer  onClick={DeleteOneProfile}>
       <ButtonLogin>
         Entrar
       </ButtonLogin>

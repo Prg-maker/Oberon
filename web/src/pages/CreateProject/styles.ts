@@ -18,9 +18,16 @@ export const ContainerWrapper = styled.form`
   align-items: center;
   padding-left: 133px;
 
+
+ 
   .button{
     position: relative;
     left: 55px;
+
+    @media(max-height: 490px){
+      position: absolute;
+      bottom: 0;
+    }
   }
 
   @media(max-width: 1000px){
@@ -34,7 +41,7 @@ export const ContainerWrapper = styled.form`
     .name{
       margin-top: 20px;
     }
-
+   
   
   }
   
@@ -64,8 +71,7 @@ export const Title = styled.p`
     
   }
 
-  @media(max-height: 500px){
-    display:none ;
+  @media(max-height: 490px){
   }
 `
 export const Input = styled.input`
@@ -99,6 +105,8 @@ export const Input = styled.input`
     padding: 0 20px;
 
   }
+
+
 
 
 

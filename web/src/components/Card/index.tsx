@@ -4,11 +4,22 @@ import {
   Name,
 } from './styles'
 
-import {DotsThreeVertical} from 'phosphor-react'
+import {DotsThreeVertical, User} from 'phosphor-react'
 import { Options } from '../Options'
 import { useState } from 'react'
 
-export function Card(){
+interface PropsCard{
+  id:string;
+  name:string;
+  nameGithub?: string;
+}
+
+
+export function Card({
+  id,
+  name,
+  nameGithub
+}:PropsCard){
 
   const [isOptions , setIsOptions] = useState(false)
 
@@ -17,14 +28,18 @@ export function Card(){
     console.log(isOptions)
   }
 
+    
   return(
     <Container>
       <div>
-        <Avatar src='https://github.com/Prg-maker.png'/>
-        <DotsThreeVertical size={32} weight="bold" style={{cursor:'pointer'}} onClick={handleIsOptionsOpen} />
+
+        {
+          nameGithub? <Avatar src={`https://github.com/${nameGithub}.png`}/> :<User className='user' size={50}  weight="bold" />
+        }
+        <DotsThreeVertical className='ponts' size={32} weight="bold" style={{cursor:'pointer'}} onClick={handleIsOptionsOpen} />
 
         
-        {isOptions && <Options/> }
+        {isOptions && <Options id={id}/> }
       </div>
 
       <Name>Daniel</Name>

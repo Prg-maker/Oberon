@@ -26,11 +26,19 @@ export const Container = styled.div`
 
     position: relative;
 
-    svg{
+    .ponts {
       position: absolute;
       right: 0.9rem;
+
     }
   }
+
+  .user{
+    background: var(--color-bck_gray);
+    border-radius: 50%;
+  }
+
+  
 `;
 
 
