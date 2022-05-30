@@ -25,7 +25,7 @@ export const Container = styled.div`
 `;
 
 
-export const Form = styled.div`
+export const Form = styled.form`
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows:   auto auto;
@@ -68,9 +68,20 @@ export const Form = styled.div`
       width: 100%;
     }
 
-   
   }
-  
+  @media(max-width: 600px){
+
+    .buttons{
+      display: flex;
+      position: relative;
+    }
+  }
+
+  .buttons{
+    display: flex;
+    flex-direction: column;
+
+  }
 `
 export const Title = styled.div`
   font-style: normal;
@@ -120,9 +131,6 @@ export const ButtonCreateProfile = styled.button`
   align-items: center;
   padding-left: 15px;
   cursor: pointer;
-  position: absolute;
-  right: 0;
-  bottom: 0;
   gap: 20px;
   font-style: normal;
   font-weight: 700;
@@ -135,14 +143,59 @@ export const ButtonCreateProfile = styled.button`
   background: var(--color-text_secondary);
 
 
+  position: relative;
+  top: 50%;
+  left: 50%;
+
+
   &:hover{
     gap: 30px;
     transition: 0.2s;
     filter:brightness(1.5);
   }
 
-  @media (max-width:800px) {
+  @media (max-width:700px) {
     position: relative;
-    left: 45%;
+    left: 50%;
+    top: 0%;
+
+  }
+
+`
+
+
+
+export const ButtonBack = styled.button`
+  width: 150px;
+  height: 45px;
+  border-radius: 7px;
+  
+
+
+  background: var(--color-text_secondary);
+
+  a{
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    cursor: pointer;
+    gap: 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+  }
+
+  &:hover{
+    transition: 0.2s;
+    filter:brightness(1.5);
+  }
+
+  @media (max-width:700px) {
+    position: absolute;
+    left: 0;
   }
 `

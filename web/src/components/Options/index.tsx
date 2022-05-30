@@ -12,7 +12,7 @@ interface PropsOptions{
 export function Options({id}:PropsOptions){
 
   async function DeleteOneProfile(){   
-    await api.delete('/delete' , {
+      await api.delete('/delete' , {
       data:{
         id
       }

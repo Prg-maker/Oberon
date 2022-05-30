@@ -37,12 +37,11 @@ export function Card({
           nameGithub? <Avatar src={`https://github.com/${nameGithub}.png`}/> :<User className='user' size={50}  weight="bold" />
         }
         <DotsThreeVertical className='ponts' size={32} weight="bold" style={{cursor:'pointer'}} onClick={handleIsOptionsOpen} />
-
         
         {isOptions && <Options id={id}/> }
       </div>
 
-      <Name>Daniel</Name>
+      <Name>{name}</Name>
     
     </Container>
   )
