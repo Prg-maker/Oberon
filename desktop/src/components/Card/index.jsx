@@ -6,6 +6,7 @@ import {
 
 import {DotsThreeVertical} from 'phosphor-react'
 import { useState } from 'react'
+import { Options } from '../Options'
 
 export function Card(){
 
@@ -20,7 +21,7 @@ export function Card(){
       <div>
         <Avatar src='https://github.com/Prg-maker.png'/>
         <DotsThreeVertical size={32} weight="bold" style={{cursor:'pointer'}} onClick={handleIsOptionsOpen} />
-
+        {isOptions && <Options/>}
         
       </div>
 

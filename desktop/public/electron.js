@@ -13,6 +13,7 @@ function createWindow() {
     minHeight:600,
     titleBarStyle: 'hidden',
     alwaysOnTop: true,
+    backgroundColor:  "#302B27",
     webPreferences: {
       nodeIntegration: true,
     },
