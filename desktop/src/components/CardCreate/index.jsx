@@ -4,7 +4,7 @@ import {
   
 
 import {Plus} from 'phosphor-react'
-    
+
 export function CardCreate(){
   return(
     <Container>
