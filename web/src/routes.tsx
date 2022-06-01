@@ -1,7 +1,8 @@
 import {
   BrowserRouter,
   Routes as RoutesProject,
-  Route 
+  Route,
+  
 } from 'react-router-dom'
 
 
@@ -13,12 +14,26 @@ import { CreateProject } from "./pages/CreateProject"
 import { DetailsProjectHome } from "./pages/DetailsProjectHome"
 import { Home } from "./pages/Home"
 
-export function Routes(){
+
+
+
+
+import {} from 'react-router-dom'
+import { useState } from 'react'
+export function Routes(){ 
   return(
     <BrowserRouter>
       <RoutesProject>
         <Route path='/' element={<Home/>}/>
         <Route path='/register' element={<CreateUser/>}/>
+        <Route  path='/login/:nameGithub' element={<Login/>}/>
+
+
+
+
+        {/*router private*/}
+        <Route path='/projects/:userId' element={<Projects/>}/>
+
       </RoutesProject>
     </BrowserRouter>
   )

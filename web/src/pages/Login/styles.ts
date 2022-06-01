@@ -21,7 +21,7 @@ export const Container = styled.div`
         margin-bottom: 2rem;
       } 
     }
-  }
+  } 
 
 `;
 
@@ -34,6 +34,14 @@ export const Form = styled.div`
 
   .name{
     padding-bottom: 50px;
+  }
+
+  .buttons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 50px ;
   }
  
  
@@ -83,7 +91,7 @@ export const Input = styled.input`
 `
 
 export const ButtonEnterInProfile = styled.button`
-  width: 150px;
+  width: 45%;
   height: 45px;
   border-radius: 7px;
   display: flex;
@@ -103,11 +111,46 @@ export const ButtonEnterInProfile = styled.button`
   background: var(--color-text_secondary);
 
 
-  margin-top: 50px ;
 
   &:hover{
     gap: 30px;
     transition: 0.2s;
     filter:brightness(1.5);
+  }
+`
+
+
+
+
+export const ButtonBack = styled.button`
+  width: 45%;
+  height: 45px;
+  border-radius: 7px;
+  
+
+
+  background: var(--color-text_secondary);
+
+  a{
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    cursor: pointer;
+    gap: 20px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 29px;
+    text-align: center;
+    color: #000000;
+    text-decoration: none;
+  }
+
+  &:hover{
+    transition: 0.2s;
+    filter:brightness(1.5);
+  }
+
+  @media (max-width:700px) {
   }
 `

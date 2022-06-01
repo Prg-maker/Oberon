@@ -11,38 +11,44 @@ import OberonImg from '../../assets/Ellipse.png'
 
 import {ArrowRight} from 'phosphor-react'
 import {ArrowLeft} from 'phosphor-react'
-import { Link } from 'react-router-dom'
-import { useState } from 'react'
+import { Link , useNavigate } from 'react-router-dom'
+import { FormEvent, useState } from 'react'
 import { api } from '../../services/api'
-    
-    
+
+
+
 export function CreateUser(){
 
   const [name , setName] = useState('')
   const [nameGithub , setNameGithub] = useState('')
   const [password , setPassword] = useState('')
 
+  const navigation = useNavigate()
 
+  async function  submitProfile(event:FormEvent){
+    event.preventDefault()
 
-
-  async function  submitProfile(){
-
-    try{
-      await api.post('/register' , {
-        name,
-        nameGithub,
-        password
-      }) 
-    
-    
-    }catch(err){
-
+    if(!name || name.length <= 5){
+      return alert('O nome não é válido')
     }
-   
+    if(!password || password.length <= 7){
+      return alert('A senha não é válido')
+    }
+
+    await api.post('/register' , {
+      name,
+      nameGithub,
+      password
+    }) 
     setName('')
     setPassword('')
     setNameGithub('')
+    alert('usuário foi criado')
 
+    navigation('/')
+
+ 
+   
     
   }
 
@@ -52,7 +58,7 @@ export function CreateUser(){
         <img src={OberonImg} alt="Oberon"  />
       </div>
 
-      <Form  onSubmit={submitProfile}>
+      <Form >
 
         <div className='name'>
           <label htmlFor="nome">Nome</label>
@@ -76,7 +82,7 @@ export function CreateUser(){
         </div>
         
         <div className='buttons'>
-          <ButtonCreateProfile>
+          <ButtonCreateProfile onClick={submitProfile}>
             Criar
             <ArrowRight size={25} weight="bold" />
           </ButtonCreateProfile>

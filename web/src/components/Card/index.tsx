@@ -38,7 +38,7 @@ export function Card({
         }
         <DotsThreeVertical className='ponts' size={32} weight="bold" style={{cursor:'pointer'}} onClick={handleIsOptionsOpen} />
         
-        {isOptions && <Options id={id}/> }
+        {isOptions && <Options id={id} nameGithub={nameGithub}/> }
       </div>
 
       <Name>{name}</Name>

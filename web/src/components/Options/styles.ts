@@ -32,14 +32,16 @@ export const ButtonLogin = styled.button`
   width: 100%;
   height: 100%;
   border-radius: 10px  10px  0 0;
-  color: var(--color-text_secondary);
 
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 24px;
-  text-align: center;
-  cursor: pointer;
-
+  a{
+    color: var(--color-text_secondary);
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
 `
 export const Separete = styled.div`
   width: 100%;

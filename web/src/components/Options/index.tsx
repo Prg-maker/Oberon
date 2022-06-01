@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { api } from '../../services/api'
 import {
   OptionsContainer,
@@ -6,10 +7,11 @@ import {
   ButtonDelete,
 } from './styles'
 interface PropsOptions{
-  id:string
+  id:string,
+  nameGithub?:string
 }
 
-export function Options({id}:PropsOptions){
+export function Options({id , nameGithub}:PropsOptions){
 
   async function DeleteOneProfile(){   
       await api.delete('/delete' , {
@@ -21,10 +23,14 @@ export function Options({id}:PropsOptions){
     document.location.reload()
   } 
 
+
   return(
     <OptionsContainer  >
+
       <ButtonLogin >
-        Entrar
+        <Link to={`/login/${nameGithub? nameGithub : 'prg-maker'}`}>
+          Entrar
+        </Link>
       </ButtonLogin>
 
       <Separete/>
