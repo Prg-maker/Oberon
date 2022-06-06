@@ -3,6 +3,7 @@ import GlobalStyles from "./styles/GlobalStyles"
 
 import { Routes } from "./routes"
 
+import {UserContextProvider} from './context/UserProvider'
 
 
 
@@ -11,7 +12,9 @@ function App() {
   return (
 
     <>
-      <Routes/>
+      <UserContextProvider>
+        <Routes/>
+      </UserContextProvider>
       <GlobalStyles/>
     </>
   )
