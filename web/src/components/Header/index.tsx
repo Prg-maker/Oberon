@@ -5,7 +5,6 @@ import {
 } from './styles'
     
 import {SortAscending} from 'phosphor-react'
-import { DetailsProject } from '../DetailsProjects'
     
 interface HeaderProps{
   isOpenDetailsProject: ()=> void

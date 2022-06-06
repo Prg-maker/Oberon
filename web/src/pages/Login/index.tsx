@@ -30,13 +30,13 @@ export function Login(){
     }
     if(!password || password.length <= 7){
       return alert('A senha não é válido')
-    }
+    } 
 
     try{
       const {data} = await api.post('/login' , {
         name,password
       })
-
+      console.log(data)
       const userId = data.user.id
      
       localStorage.setItem("token" , `${data.token}`)
