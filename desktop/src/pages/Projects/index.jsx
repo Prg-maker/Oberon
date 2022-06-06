@@ -11,7 +11,6 @@ export function Projects(){
   return(
     <Container>
       <IsOpenDetailsProject/>
-        <h1>Hello</h1>
     </Container>
   )
 }

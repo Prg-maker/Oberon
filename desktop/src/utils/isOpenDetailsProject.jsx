@@ -14,7 +14,6 @@ export function IsOpenDetailsProject(){
   return(
     <>
       <Header isOpenDetailsProject={toggleOpenDetailsProject}/>
-      { isOpenDetailsProject && <DetailsProject/>}
     </>
   )
 }

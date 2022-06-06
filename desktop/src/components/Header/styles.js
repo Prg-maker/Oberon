@@ -1,31 +1,39 @@
-import {
-  Container,
-  Name,
-  Avatar,
-} from './styles'
-    
-import {SortAscending} from 'phosphor-react'
-import { DetailsProject } from '../DetailsProjects'
-    
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  position: relative;
+  width:70% ;
+  height: 80px;
+  background: var( --color-bck_options);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+ 
+`;
 
 
-export function Header({isOpenDetailsProject}){
-  return(
-    <Container>
-      <Name>Daniel Fernandes Silva</Name>
+export const Name = styled.strong`
+  font-weight: 700;
+  color: var(--color-bck-white);
+  padding-left: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
 
+  @media (max-width: 600px) {
+    padding-left: 1rem ;
+    font-size: 10px;
+  }
+`
+export const Avatar = styled.img`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 8px;
 
-      <div>
-        <Avatar src='https://github.com/Prg-Maker.png'/>
-
-        <SortAscending onClick={isOpenDetailsProject} style={{
-          color:'#fff',
-          cursor:'pointer',
-          marginRight: '10px'
-        }} size={32} weight="light" />
-      </div>
-
-    
-    </Container>
-  )
-}
+  @media (max-width: 600px) {
+    width: 40px;
+    height: 40px;
+  }
+`
