@@ -10,22 +10,10 @@ import { useContext , useEffect } from 'react'
 
     
 export function Projects(){
-  const {setState , state} = useContext(UserContext)
 
-  useEffect(()=> {
+  const {state} = useContext(UserContext)
 
-
-    setState({
-      id:"1",
-      name:"daniel",
-      nameGithub:"",
-      token: "none"
-    })
-
-
-  } , [])
   console.log(state)
-
   return(
     <Container>
       <IsOpenDetailsProject/>

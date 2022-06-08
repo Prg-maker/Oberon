@@ -4,7 +4,6 @@ type  User = {
   id: string;
   name: string;
   nameGithub: string;
-  token: string;
 }
 
 type PropsUserContext = {
@@ -21,7 +20,6 @@ const default_value={
     id:"",
     name:"",
     nameGithub: "",
-    token:""
   },
   setState: ()=> {}
 }

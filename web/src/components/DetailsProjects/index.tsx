@@ -5,9 +5,21 @@ import {
   ButtonCreateProject,
   Exit,
 } from './styles'
+
+import {useNavigate}from 'react-router-dom'
     
     
 export function DetailsProject(){
+  const navigation = useNavigate()
+
+  function handleClickExit(){
+    localStorage.clear()
+    navigation('/')
+  }
+
+  function LinkHandleClick(){
+    navigation('/projects')
+  }
   return(
     <Container>
 
@@ -17,7 +29,7 @@ export function DetailsProject(){
       </div> 
 
 
-      <ButtonCreateProject>
+      <ButtonCreateProject onClick={LinkHandleClick}>
         <Plus size={20} weight="bold" style={{
           position:'absolute',
           left: 0,
@@ -26,7 +38,7 @@ export function DetailsProject(){
         Criar Projeto
       </ButtonCreateProject>
 
-      <Exit>
+      <Exit onClick={handleClickExit}>
         <SignOut size={20} weight="bold" style={{
           position:'absolute',
           left: 0,

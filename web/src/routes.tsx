@@ -19,7 +19,6 @@ import {UserContextProvider} from './context/UserProvider'
 
 
 import {} from 'react-router-dom'
-import { useState } from 'react'
 export function Routes(){ 
   return(
     <BrowserRouter>
@@ -34,6 +33,7 @@ export function Routes(){
         {/*router private*/}
 
           <Route path='/projects/:userId' element={<Projects/>}/>
+          <Route path='/projects' element={<CreateProject/>}/>
 
       </RoutesProject>
     </BrowserRouter>

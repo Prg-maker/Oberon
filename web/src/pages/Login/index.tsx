@@ -9,12 +9,29 @@ import {
 
 import {ArrowLeft, ArrowRight, User} from 'phosphor-react'
 import { Link, useParams } from 'react-router-dom'
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useEffect, useState } from 'react'
 import { api } from '../../services/api'
 import {useNavigate} from 'react-router-dom'
+import { UserContext } from '../../context/UserProvider'
     
     
+
+interface PropsData {
+  data:{
+    user:{
+      id:string;
+      name:string;
+      nameGithub:string;
+    },
+    token:string
+  }
+
+}
+
 export function Login(){
+  const {setState , state} = useContext(UserContext)
+
+
   const navigation = useNavigate()
 
   const {nameGithub} = useParams()
@@ -35,12 +52,23 @@ export function Login(){
     try{
       const {data} = await api.post('/login' , {
         name,password
-      })
-      console.log(data)
-      const userId = data.user.id
-     
-      localStorage.setItem("token" , `${data.token}`)
+      }) as PropsData
 
+
+      const {user , token} = data
+
+      const userId = user.id
+
+      localStorage.setItem("token" , `${token}`)
+
+
+      setState({
+        id: user.id,
+        name:user.name,
+        nameGithub:user.nameGithub,
+      })
+
+  
 
       navigation(`/projects/${userId}`)
 
@@ -51,6 +79,10 @@ export function Login(){
 
 
   }
+
+
+
+  
 
   return(
     <Container>

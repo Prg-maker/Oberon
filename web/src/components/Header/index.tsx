@@ -4,22 +4,32 @@ import {
   Avatar,
 } from './styles'
     
-import {SortAscending} from 'phosphor-react'
+import {SortAscending, User} from 'phosphor-react'
     
 interface HeaderProps{
-  isOpenDetailsProject: ()=> void
+  data:{
+    name: string;
+    nameGithub:string;
+  }
+  isOpenDetailsProject: ()=> void,
 }
 
 export function Header({
-  isOpenDetailsProject
+  isOpenDetailsProject,
+  data
 }: HeaderProps){
+
+  const {name,nameGithub} = data
+  console.log(name)
   return(
     <Container>
-      <Name>Daniel Fernandes Silva</Name>
+      <Name>{name}</Name>
 
 
       <div>
-        <Avatar src='https://github.com/Prg-Maker.png'/>
+        {
+          nameGithub? <Avatar src={`https://github.com/${nameGithub}.png`}/> :<User className='user' size={50}  weight="bold" />
+        }
 
         <SortAscending onClick={isOpenDetailsProject} style={{
           color:'#fff',
