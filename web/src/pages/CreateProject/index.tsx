@@ -1,14 +1,15 @@
-import { ButtonSubmitComponent } from '../../components/Button'
 import { IsOpenDetailsProject } from '../../utils/isOpenDetailsProject'
-import {useState } from 'react'
+import {FormEvent, useState } from 'react'
 import {
   Container,
   ContainerWrapper,
   Title,
   Input,
   TextArea,
+  ButtonSubmitComponent
 } from './styles'
 import { api } from '../../services/api'
+import { ArrowRight } from 'phosphor-react'
     
     
 export function CreateProject(){
@@ -17,8 +18,22 @@ export function CreateProject(){
   const [repository , setRepository] = useState('')
   const [details, setDetails] = useState('')
 
-  async function handleCreateProject(){
-    await api.post('')
+  const token = localStorage.getItem('token')
+  console.log(token)
+
+  async function handleCreateProject(event: FormEvent){
+    event.preventDefault()
+
+    try{
+      const response = await api.post('/project' , {
+        nameProject,
+        repository,
+        details
+      })
+      console.log(response)
+    }catch(err){
+      return alert(err)
+    }
   }
 
   return(
@@ -46,7 +61,10 @@ export function CreateProject(){
 
 
         <div className='button'>
-          <ButtonSubmitComponent title="Enviar"/>
+          <ButtonSubmitComponent onClick={handleCreateProject}>
+            Enviar
+            <ArrowRight className='arrow' size={25} weight="bold" />
+          </ButtonSubmitComponent>
         </div>
       </ContainerWrapper>
        

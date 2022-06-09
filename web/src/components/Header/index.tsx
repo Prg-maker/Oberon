@@ -28,7 +28,9 @@ export function Header({
 
       <div>
         {
-          nameGithub? <Avatar src={`https://github.com/${nameGithub}.png`}/> :<User className='user' size={50}  weight="bold" />
+          nameGithub? <Avatar src={`https://github.com/${nameGithub}.png`}/> :<User className='user' size={30}  weight="bold"  style={{
+            marginRight: '12px' 
+          }}/>
         }
 
         <SortAscending onClick={isOpenDetailsProject} style={{
