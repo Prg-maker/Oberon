@@ -9,6 +9,9 @@ import {SortAscending} from 'phosphor-react'
 
 
 export function Header({isOpenDetailsProject}){
+
+  
+
   return(
     <Container>
       <Name>Daniel Fernandes Silva</Name>

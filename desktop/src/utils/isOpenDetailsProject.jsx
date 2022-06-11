@@ -8,12 +8,14 @@ export function IsOpenDetailsProject(){
 
   function toggleOpenDetailsProject(){
     setIsOpenDetailsProject(!isOpenDetailsProject)
+    
   }
 
 
   return(
     <>
       <Header isOpenDetailsProject={toggleOpenDetailsProject}/>
+      { isOpenDetailsProject && <DetailsProject/>}
     </>
   )
 }

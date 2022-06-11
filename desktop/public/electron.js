@@ -13,11 +13,14 @@ function createWindow() {
     minHeight:600,
     titleBarStyle: 'hidden',
     alwaysOnTop: true,
+    
     backgroundColor:  "#302B27",
     webPreferences: {
       nodeIntegration: true,
     },
   });
+  win.webContents.toggleDevTools()
+
   win.loadURL(
     isDev
       ? 'http://localhost:3000'
@@ -26,7 +29,6 @@ function createWindow() {
 
 }
 function toggleDevTools(){
-  win.webContents.toggleDevTools()
 }
 
 function createShortcuts(){
