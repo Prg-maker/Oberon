@@ -1,11 +1,11 @@
 import { Login } from "./pages/Login";
-import { Projects } from "./pages/Projects";
+import { CreateProject } from "./pages/CreateProject";
 import GlobalStyles from "./styles/GlobalStyles";
 
 function App() {
   return (
     <div className="App">
-      <Projects/>
+      <CreateProject/>
       <GlobalStyles/>
     </div>
   );
