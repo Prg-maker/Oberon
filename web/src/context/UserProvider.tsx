@@ -15,11 +15,14 @@ interface Props{
   children: ReactNode
 }
 
+const nameStorage = localStorage.getItem('name') as string
+const nameGithubStorage = localStorage.getItem('nameGithub') as string
+
 const default_value={
   state:{
     id:"",
-    name:"",
-    nameGithub: "",
+    name:nameStorage,
+    nameGithub: nameGithubStorage,
   },
   setState: ()=> {}
 }

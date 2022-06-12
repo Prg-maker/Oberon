@@ -19,6 +19,7 @@ import { api } from '../../services/api'
 
 export function CreateUser(){
 
+  localStorage.clear()
   const [name , setName] = useState('')
   const [nameGithub , setNameGithub] = useState('')
   const [password , setPassword] = useState('')

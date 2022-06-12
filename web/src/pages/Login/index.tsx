@@ -29,6 +29,7 @@ interface PropsData {
 }
 
 export function Login(){
+  localStorage.clear()
   const {setState , state} = useContext(UserContext)
 
 
@@ -56,10 +57,14 @@ export function Login(){
 
 
       const {user , token} = data
-
+      
       const userId = user.id
 
+      
+
       localStorage.setItem("token" , `${token}`)
+      localStorage.setItem("name" , `${user.name}`)
+      localStorage.setItem("nameGithub" , `${user.nameGithub}`)
 
 
       setState({

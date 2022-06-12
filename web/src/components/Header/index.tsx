@@ -20,7 +20,7 @@ export function Header({
 }: HeaderProps){
 
   const {name,nameGithub} = data
-  console.log(name)
+
   return(
     <Container>
       <Name>{name}</Name>
@@ -28,7 +28,7 @@ export function Header({
 
       <div>
         {
-          nameGithub? <Avatar src={`https://github.com/${nameGithub}.png`}/> :<User className='user' size={30}  weight="bold"  style={{
+          nameGithub? <Avatar src={`https://github.com/${nameGithub}.png`}/> :<User className='user'  size={30}  weight="bold"  style={{
             marginRight: '12px' 
           }}/>
         }
