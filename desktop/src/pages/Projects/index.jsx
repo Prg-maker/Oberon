@@ -1,3 +1,4 @@
+import { CardsProject } from '../../components/CardsProject'
 import { IsOpenDetailsProject } from '../../utils/isOpenDetailsProject'
 import {
   Container
@@ -11,6 +12,7 @@ export function Projects(){
   return(
     <Container>
       <IsOpenDetailsProject/>
+      <CardsProject/>
     </Container>
   )
 }
