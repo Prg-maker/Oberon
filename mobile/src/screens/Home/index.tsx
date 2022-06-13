@@ -1,5 +1,6 @@
 import { View , Text} from 'react-native'
 import { CardCreate } from '../../components/CardCreate'
+import {FlatList} from 'react-native';
 import {
   styles
 } from './styles'
@@ -7,7 +8,15 @@ import {
     
 export function Home(){
   return(
-    <View style={styles.container}>
+    <View 
+      style={styles.container}
+    >
+      <CardCreate/>
+      <CardCreate/>
+      <CardCreate/>
+      <CardCreate/>
+      <CardCreate/>
+      <CardCreate/>
       <CardCreate/>
     </View>
   )
