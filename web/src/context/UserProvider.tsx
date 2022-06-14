@@ -15,6 +15,8 @@ interface Props{
   children: ReactNode
 }
 
+
+
 const nameStorage = localStorage.getItem('name') as string
 const nameGithubStorage = localStorage.getItem('nameGithub') as string
 

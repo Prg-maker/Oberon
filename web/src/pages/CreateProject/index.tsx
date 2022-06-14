@@ -19,18 +19,24 @@ export function CreateProject(){
   const [details, setDetails] = useState('')
 
   const token = localStorage.getItem('token')
-  console.log(token)
 
   async function handleCreateProject(event: FormEvent){
     event.preventDefault()
 
     try{
-      const response = await api.post('/project' , {
-        nameProject,
-        repository,
-        details
-      })
-      console.log(response)
+       await api.post('/project', {
+        title: nameProject,
+        details,
+        repositoryGit:repository,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer '+token
+        },      
+      })      
+
+
+      return alert('projeto criado')
+
     }catch(err){
       return alert(err)
     }

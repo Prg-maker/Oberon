@@ -60,11 +60,16 @@ export function Login(){
       
       const userId = user.id
 
-      
+      const userLocal={
+        name: user.name,
+        nameGithub: user.nameGithub
+      }
 
+   
       localStorage.setItem("token" , `${token}`)
       localStorage.setItem("name" , `${user.name}`)
       localStorage.setItem("nameGithub" , `${user.nameGithub}`)
+
 
 
       setState({
