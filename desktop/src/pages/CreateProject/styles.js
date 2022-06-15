@@ -21,10 +21,17 @@ export const ContainerWrapper = styled.form`
 
  
   .button{
-    position: relative;
-    left: 55px;
+    width: 100%;
 
-    
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    gap: 1rem;
+
+    a{
+      text-decoration: none;
+    }
   }
 
   @media(max-width: 1000px){

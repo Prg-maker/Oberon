@@ -8,7 +8,7 @@ import {
   TextArea,
   ButtonSubmitComponent
 } from './styles'
-import { ArrowRight } from 'phosphor-react'
+import { ArrowRight , ArrowLeft  } from 'phosphor-react'
     
     
 export function CreateProject(){
@@ -23,6 +23,8 @@ export function CreateProject(){
     event.preventDefault()
     console.log('aqui')
   }
+
+
 
   return(
     <Container>
@@ -49,6 +51,16 @@ export function CreateProject(){
 
 
         <div className='button'>
+
+          <a href="/">
+            <ButtonSubmitComponent >
+              <ArrowLeft className='arrow' size={25} weight="bold" />
+              Voltar
+
+            </ButtonSubmitComponent>
+          </a>
+         
+
           <ButtonSubmitComponent onClick={handleCreateProject}>
             Enviar
             <ArrowRight className='arrow' size={25} weight="bold" />
