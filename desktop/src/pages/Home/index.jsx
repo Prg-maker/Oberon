@@ -5,9 +5,17 @@ import {
 
 
 export function Home(){
+
+  async function Create(){
+
+
+
+  }
+
   return(
     <Container>
-      <Cards/>
+      <button onClick={Create}>Adicionar</button>
+      asdas
     </Container>
   )
 }
