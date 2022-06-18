@@ -11,7 +11,6 @@ import { useContext , useEffect } from 'react'
     
 export function Projects(){
 
-  const {state} = useContext(UserContext)
 
   return(
     <Container>

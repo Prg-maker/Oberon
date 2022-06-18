@@ -7,9 +7,20 @@ import {
   Details,
   Status,
 } from './styles'
+
+
+interface PropsCard{
+  title: string;
+  details: string;
+  progress?: string;
+
+}
     
-    
-export function CardProject(){
+export function CardProject({
+  title,
+  details,
+  progress
+}: PropsCard){
 
   const [isOpenOptionsCardProject , setIsOpenOptionsCardProject ] = useState(false)
 
@@ -28,8 +39,8 @@ export function CardProject(){
         <DotsThreeVertical size={32} weight="bold" style={{cursor:'pointer'}} onClick={toggleIsOpenOptionsCardProject} />
       </div>
       
-      <Title>Fist Project</Title>
-      <Details>Mais um dia se passou, não sei o que fazer, e o que eu penso sobre vc, da qlidadsadsadsdadasddsasdsadsdas</Details>
+      <Title>{title}</Title>
+      <Details>{details}</Details>
     </Container>  
   )
 }
