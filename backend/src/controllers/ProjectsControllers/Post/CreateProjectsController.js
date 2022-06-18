@@ -4,7 +4,7 @@ class CreateProjectController{
   async handle(req, res){
 
     const userId = req.userId
-
+    console.log(userId)
     if(!userId){
       return res.status(400).send({
         error:"userId does not exist"

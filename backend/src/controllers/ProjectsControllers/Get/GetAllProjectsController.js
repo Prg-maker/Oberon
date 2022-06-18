@@ -11,9 +11,10 @@ class GetAllProjectsController{
       })
     }
 
-
     try{
+
       const projects = await ProjectUseCase.listAllProject(userId)
+      console.log(userId)
 
       return res.status(200).json(projects)
     }catch(err){
