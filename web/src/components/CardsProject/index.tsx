@@ -12,7 +12,7 @@ export function CardsProject(){
   useEffect(()=> {
     async function get(){
       try{
-        const response = await api.get('/project', {
+        const response = await api.get('/projects', {
 
          headers: {
            'Content-Type': 'application/json',

@@ -13,7 +13,6 @@ export function Projects(){
 
   const {state} = useContext(UserContext)
 
-  console.log(state)
   return(
     <Container>
       <IsOpenDetailsProject/>
