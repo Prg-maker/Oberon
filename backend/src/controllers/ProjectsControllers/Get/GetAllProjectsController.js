@@ -8,7 +8,7 @@ class GetAllProjectsController{
     if(!userId){
       return res.status(400).send({
         error:"userId does not exist"
-      })
+      })  
     }
 
     try{
