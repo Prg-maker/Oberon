@@ -17,7 +17,6 @@ export function Cards(){
 
   const [listUsers , setListUsers] = useState<PropsListUsers[]>([])
 
-
   useEffect(()=> {
     async function getAccounts(){
       const {data } = await api.get('/') 

@@ -14,23 +14,23 @@ interface CardProps{
 
 
 export function CardsProject(){
-  const [dataCard , setDataCard] = useState([])
+  const [dataCard , setDataCard] = useState<CardProps[]>([]) 
 
+  
   const token = localStorage.getItem('token')
 
   useEffect(()=> {
     async function get(){
       try{
-        const  {data} = await api.get('/projects', {
+      const  {data} = await api.get('/projects', {
 
-         headers: {
-           'Content-Type': 'application/json',
-           'authorization': 'Bearer '+token
-         },      
-       }) 
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': 'Bearer '+token
+        },      
+      }) 
 
-       setDataCard(data)
- 
+      setDataCard(data)
      }catch(err){
       return alert(err)
      }
@@ -41,17 +41,14 @@ export function CardsProject(){
 
   }, [])
 
-  console.log( typeof dataCard)
-
 
   return(
     <Container>
        
       {
         dataCard.map(data=> (
-          <h1>{data}</h1>
+          <h1>data</h1>
         ))
-       
       }
       
     </Container>
