@@ -56,9 +56,7 @@ class ProjectsRepositorys {
           userId
         }
       })
-      return {
-        data:projects
-      }
+      return projects
     }catch(err){
       return {
         error: "user does not exist"
