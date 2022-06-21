@@ -42,12 +42,18 @@ export function CardsProject(){
   }, [])
 
 
+
   return(
     <Container>
        
       {
-        dataCard.map(data=> (
-          <h1>data</h1>
+        dataCard.map(projects=> (
+          <CardProject
+            details={projects.details}
+            title={projects.title}
+            key={projects.id}
+            
+          />
         ))
       }
       
