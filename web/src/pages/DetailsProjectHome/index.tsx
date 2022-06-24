@@ -1,13 +1,52 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { api } from "../../services/api";
 import { IsOpenDetailsProject } from "../../utils/isOpenDetailsProject";
 import { Container, Project, Title, Progress , ProjectInProgress , Details, Repository , LinkRepository,} from "./styles";
+//'/project/:id
+
+interface ProjectProps{
+  title: string;
+  details:string;
+  repositoryGit:string;
+}
 
 export function DetailsProjectHome() {
+  const [project , setProject] = useState<ProjectProps>()
+  const token = localStorage.getItem('token')
+  const {id} = useParams()
+
+  useEffect(()=> {
+    async function get(){
+      try{
+      const  {data} = await api.get(`/project/${id}`, {
+
+        headers: {
+          'Content-Type': 'application/json',
+          'authorization': 'Bearer '+token
+        },      
+      }) 
+
+      setProject(data)
+
+     }catch(err){
+      return alert(err)
+     }
+
+    }
+
+    get()
+
+  }, [])
+
+
+
+
   return (
     <Container>
       <IsOpenDetailsProject />
       <Project>
-        <Title>Fist Project</Title>
-
+        <Title>{project?.title}</Title>
         <Progress>
           <strong>Progresso</strong>
           <div className="progress">
@@ -18,21 +57,14 @@ export function DetailsProjectHome() {
         <div className="details">
           <strong>Detalhes:</strong>
           <Details>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-            repellat corporis esse soluta, dolorem magnam quod consequatur error
-            odit modi, optio rem quia? Vero laborum assumenda, iste velit
-            deleniti earum.
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo
-            repellat corporis esse soluta, dolorem magnam quod consequatur error
-            odit modi, optio rem quia? Vero laborum assumenda, iste velit
-            deleniti earum.
+           {project?.details}
            
           </Details>
         </div>
 
         <Repository>
           <strong>Repositorio no github:</strong>
-          <LinkRepository href="#">https://github.com/Prg-maker/TDD</LinkRepository>
+          <LinkRepository href={project?.repositoryGit}>{project?.repositoryGit}</LinkRepository>
         </Repository>
       </Project>
     </Container>
