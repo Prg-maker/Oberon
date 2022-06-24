@@ -32,7 +32,7 @@ export function Cards(){
       <CardCreate/>
       {
         listUsers.map(user=> (
-          <Card key={user.id} id={user.id} name={user.name} nameGithub={user.nameGithub}/>
+          <Card  key={user.id} id={user.id} name={user.name} nameGithub={user.nameGithub}/>
         ))
       }
       

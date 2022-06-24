@@ -25,7 +25,6 @@ export function Card({
 
   function handleIsOptionsOpen(){
     setIsOptions(!isOptions)
-    console.log(isOptions)
   }
 
     

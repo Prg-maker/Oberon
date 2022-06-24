@@ -38,7 +38,6 @@ export default createGlobalStyle`
   }
   html , body ,#root{
     height:100vh;
-    overflow-y: none;
   }
   html,body{
     background-color:#302B27 ;

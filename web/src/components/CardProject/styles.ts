@@ -55,4 +55,9 @@ export const Details = styled.p`
   width: 80%;
   overflow: hidden;   
   text-overflow:ellipsis;
+  overflow: auto;
+  height: 50%;
+  &::-webkit-scrollbar{
+    background: var(--color-bck-cardP);
+  }   
 `

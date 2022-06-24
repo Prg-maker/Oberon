@@ -10,6 +10,7 @@ import {
 
 
 interface PropsCard{
+  CardId:string;
   title: string;
   details: string;
   progress?: string;
@@ -19,7 +20,8 @@ interface PropsCard{
 export function CardProject({
   title,
   details,
-  progress
+  progress,
+  CardId
 }: PropsCard){
 
   const [isOpenOptionsCardProject , setIsOpenOptionsCardProject ] = useState(false)
@@ -31,7 +33,7 @@ export function CardProject({
   return(
     <Container>
       {
-        isOpenOptionsCardProject && <OptionsCardProject/>
+        isOpenOptionsCardProject && <OptionsCardProject id={CardId}/>
       }
 
       <div className='header'>

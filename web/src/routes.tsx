@@ -13,7 +13,6 @@ import { Projects } from "./pages/Projects"
 import { CreateProject } from "./pages/CreateProject"
 import { DetailsProjectHome } from "./pages/DetailsProjectHome"
 import { Home } from "./pages/Home"
-import {UserContextProvider} from './context/UserProvider'
 
 
 
@@ -34,6 +33,7 @@ export function Routes(){
 
           <Route path='/projects/:userId' element={<Projects/>}/>
           <Route path='/projects' element={<CreateProject/>}/>
+          <Route path='/project/details/:id' element={<DetailsProjectHome/> }/>
 
       </RoutesProject>
     </BrowserRouter>

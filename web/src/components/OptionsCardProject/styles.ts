@@ -21,23 +21,31 @@ export const Container = styled.div`
     bottom: 50px;
   }
 
+  a{
+    font-style: normal;
+    font-weight: 700;
+    line-height: 29px;
+    text-align: center;
+    color: var(--color-bck-white);
+    cursor: pointer;
+    text-decoration: none;
+    font-size:14px ;
+    &:hover{
+      filter: brightness(0.8);
+    }
+  }
+
 `;
 
 
 export const ButtonDetails = styled.button`
-  width: 100%;
-  height: 45%;
-  background-color: transparent;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 29px;
-  text-align: center;
-  color: var(--color-bck-white);
-  cursor: pointer;
+ 
 
-  &:hover{
-    filter: brightness(0.8);
+
+  a{
+   
   }
+ 
 `
 export const Separete = styled.div`
   width: 90%;

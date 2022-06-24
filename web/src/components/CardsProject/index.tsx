@@ -47,11 +47,12 @@ export function CardsProject(){
     <Container>
        
       {
-        dataCard.map(projects=> (
+        dataCard.map(project=> (
           <CardProject
-            details={projects.details}
-            title={projects.title}
-            key={projects.id}
+            CardId={project.id}
+            details={project.details}
+            title={project.title}
+            key={project.id}
             
           />
         ))
