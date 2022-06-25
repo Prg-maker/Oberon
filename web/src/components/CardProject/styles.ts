@@ -23,13 +23,13 @@ export const Container = styled.div`
 
 `;
 
-export const Status = styled.p`
+export const Status = styled.div`
   width: 10px;
   height: 10px;
-  background: var(--color-progress_green);
   border-radius: 50%;
   margin-left: 20px;
 `
+
 
 export const Title = styled.div`
   font-style: normal;

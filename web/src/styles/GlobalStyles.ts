@@ -45,7 +45,7 @@ export default createGlobalStyle`
   button, input {
     outline: none;
     border:none;
-  }
+   }
 
   label{
     visibility: hidden ;

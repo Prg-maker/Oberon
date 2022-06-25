@@ -9,6 +9,7 @@ interface CardProps{
   id: string;
   title: string;
   details: string;
+  progress: number | 0;
 }
 
 
@@ -53,7 +54,7 @@ export function CardsProject(){
             details={project.details}
             title={project.title}
             key={project.id}
-            
+            progress={project.progress}
           />
         ))
       }

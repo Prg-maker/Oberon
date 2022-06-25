@@ -5,7 +5,7 @@ import {
   Container,
   Title,
   Details,
-  Status,
+  Status
 } from './styles'
 
 
@@ -13,7 +13,7 @@ interface PropsCard{
   CardId:string;
   title: string;
   details: string;
-  progress?: string;
+  progress: number | 0;
 
 }
     
@@ -30,6 +30,9 @@ export function CardProject({
     setIsOpenOptionsCardProject(!isOpenOptionsCardProject)
   }
 
+  const colorProgressCard = progress <= 30? 'var(--color-progress_red)' : progress <= 70 ? 'var(--color-progress_yellow)' : 'var(--color-progress_green)'
+  
+
   return(
     <Container>
       {
@@ -37,7 +40,9 @@ export function CardProject({
       }
 
       <div className='header'>
-        <Status/>
+        <Status style={{
+          background: colorProgressCard,
+        }}/>
         <DotsThreeVertical size={32} weight="bold" style={{cursor:'pointer'}} onClick={toggleIsOpenOptionsCardProject} />
       </div>
       

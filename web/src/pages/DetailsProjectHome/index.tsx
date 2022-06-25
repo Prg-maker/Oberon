@@ -9,6 +9,7 @@ interface ProjectProps{
   title: string;
   details:string;
   repositoryGit:string;
+  progress: number | 0;
 }
 
 export function DetailsProjectHome() {
@@ -38,8 +39,7 @@ export function DetailsProjectHome() {
     get()
 
   }, [])
-
-
+  const colorProgressCard = project?.progress <= 30? 'var(--color-progress_red)' :  project?.progress <= 70 ? 'var(--color-progress_yellow)' : 'var(--color-progress_green)'
 
 
   return (
@@ -48,10 +48,24 @@ export function DetailsProjectHome() {
       <Project>
         <Title>{project?.title}</Title>
         <Progress>
-          <strong>Progresso</strong>
-          <div className="progress">
-            <ProjectInProgress />
-          </div>
+         {
+           project?.progress ? 
+           <>
+             <strong>Progresso</strong>
+
+            <div className="progress">
+              <ProjectInProgress
+                style={{
+                  width:`${project?.progress}%`,
+                  background:colorProgressCard 
+                }}            
+              />
+            </div>
+           </>
+           : 
+           <h1>Progresso nao registrado</h1>
+         }
+
         </Progress>
 
         <div className="details">

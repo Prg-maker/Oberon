@@ -70,10 +70,8 @@ export const Progress = styled.div`
   }
 ` 
 export const ProjectInProgress = styled.div`
-  max-width: 90%;
-  min-width: 50%;
+  max-width: 100%;
   height: 7px;
-
   position: absolute;
   z-index: 10;
   border-radius:  10px;

@@ -47,7 +47,6 @@ export const ContainerWrapper = styled.form`
   
 
   @media(max-width: 500px){
-    overflow: hidden;
     width: 80%;
     .button{
       padding: 50px;
@@ -112,7 +111,7 @@ export const Input = styled.input`
 
 `
 export const TextArea = styled.textarea`
-  width: 100%;
+  width: 80%;
   height: 181px;
   resize: none;
   outline: none;
@@ -166,7 +165,7 @@ export const TextArea = styled.textarea`
 `
 
 export const ButtonSubmitComponent = styled.button`
-width: 9rem;
+  width: 9rem;
   height: 45px;
   border-radius: 7px;
   display: flex;
