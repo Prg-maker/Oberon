@@ -25,7 +25,7 @@ model Projects{
   title String
   details String
   repositoryGit String?
-  progress String?
+  progress Int 
   createdAt DateTime @default(now())
   updatedAt  DateTime @updatedAt()
 }

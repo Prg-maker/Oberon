@@ -4,7 +4,6 @@ module.exports = (req , res , next) => {
   
 
   let authHeader = req.headers.authorization
-
   if(authHeader == undefined){
     authHeader = req.body.headers.Authorization
   }
