@@ -1,15 +1,27 @@
 import { Link } from 'react-router-dom'
 import { api } from '../../services/api'
+import Swal from 'sweetalert2'
 import {
   Container,
   Separete,
   ButtonDelete,
 } from './styles'
 
+
+
 interface OptionsCardProjectProps{
   id:string
 }
 
+
+ 
+const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: 'btn btn-success',
+    cancelButton: 'btn btn-danger'
+  },
+  buttonsStyling: false
+})
 
 
 export function OptionsCardProject(props:OptionsCardProjectProps){
@@ -18,7 +30,7 @@ export function OptionsCardProject(props:OptionsCardProjectProps){
 
 
   async function DeleteOneCardProject(){
-    await api.delete('/project' , {
+    /*await api.delete('/project' , {
       data:{
         id:props.id
       },
@@ -28,8 +40,40 @@ export function OptionsCardProject(props:OptionsCardProjectProps){
       },    
     })
 
-    document.location.reload()
 
+
+    document.location.reload()*/
+    swalWithBootstrapButtons.fire({
+      title:"Tem certeza que quer excluir?",
+      showCancelButton: true,
+      confirmButtonText: 'Sim, deletar!',
+      cancelButtonText: 'Não, cancelar!',
+      reverseButtons: true
+    }).then(async (result)=> {
+
+      if(result.isConfirmed){
+        await api.delete('/project' , {
+          data:{
+            id:props.id
+          },
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer '+token
+          },    
+        })
+        
+        swalWithBootstrapButtons.fire(
+          'Deletado!',
+          'Projeto Deletado.',
+          'success'
+        )
+
+      }else if(result.dismiss === Swal.DismissReason.cancel){
+        swalWithBootstrapButtons.fire(
+          'Cancelado',
+        )
+      }
+    })
   }
  
   return(
