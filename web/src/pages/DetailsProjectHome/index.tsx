@@ -39,6 +39,9 @@ export function DetailsProjectHome() {
     get()
 
   }, [])
+
+
+
   const colorProgressCard = project?.progress <= 30? 'var(--color-progress_red)' :  project?.progress <= 70 ? 'var(--color-progress_yellow)' : 'var(--color-progress_green)'
 
 

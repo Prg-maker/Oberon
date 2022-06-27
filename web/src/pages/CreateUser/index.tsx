@@ -9,44 +9,63 @@ import {
 
 import OberonImg from '../../assets/Ellipse.png'
 
-import {ArrowRight} from 'phosphor-react'
-import {ArrowLeft} from 'phosphor-react'
+import {ArrowRight , ArrowLeft} from 'phosphor-react'
 import { Link , useNavigate } from 'react-router-dom'
 import { FormEvent, useState } from 'react'
 import { api } from '../../services/api'
-
+import Swal from 'sweetalert2'
 
 
 export function CreateUser(){
 
   localStorage.clear()
-  const [name , setName] = useState('')
+
   const [nameGithub , setNameGithub] = useState('')
+  const [name , setName] = useState('')
   const [password , setPassword] = useState('')
-
+  
   const navigation = useNavigate()
-
+  
+  
   async function  submitProfile(event:FormEvent){
     event.preventDefault()
 
-    if(!name || name.length <= 5){
-      return alert('O nome não é válido')
+    if(!name || name.length <= 2){
+      return Swal.fire({
+        icon:"error",
+        title: "nome não é válido",
+        text: "tente criar com outro nome"
+      })
     }
     if(!password || password.length <= 7){
-      return alert('A senha não é válido')
+      return Swal.fire({
+        icon:"error",
+        title: "senha não é válida",
+      })
     }
+    try{
+      await api.post('/register' , {
+        name,
+        nameGithub,
+        password
+      }) 
+      setName('')
+      setPassword('')
+      setNameGithub('')
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'usuário criado',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      navigation('/')
 
-    await api.post('/register' , {
-      name,
-      nameGithub,
-      password
-    }) 
-    setName('')
-    setPassword('')
-    setNameGithub('')
-    alert('usuário foi criado')
+    }catch(err){
+      
+    }
+  
 
-    navigation('/')
 
  
    
