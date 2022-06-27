@@ -13,7 +13,7 @@ import { FormEvent, useContext, useEffect, useState } from 'react'
 import { api } from '../../services/api'
 import {useNavigate} from 'react-router-dom'
 import { UserContext } from '../../context/UserProvider'
-    
+import Swal from 'sweetalert2'
     
 
 interface PropsData {
@@ -43,12 +43,19 @@ export function Login(){
   async function handleLogin(event:  FormEvent){
     event.preventDefault()
 
-    if(!name || name.length <= 5){
-      return alert('O nome não é válido')
+    if(!name || name.length <= 2){
+      return Swal.fire({
+        icon:"error",
+        title: "nome não é válido",
+        text: "tente criar com outro nome"
+      })
     }
     if(!password || password.length <= 7){
-      return alert('A senha não é válido')
-    } 
+      return Swal.fire({
+        icon:"error",
+        title: "senha não é válida",
+      })
+    }
 
     try{
       const {data} = await api.post('/login' , {
@@ -83,7 +90,10 @@ export function Login(){
       navigation(`/projects/${userId}`)
 
     }catch(err){
-      return alert('error')
+      return Swal.fire({
+        icon:"error",
+        title: "Nome ou  senha está errado, tente novamente",
+      })
     }
 
 
