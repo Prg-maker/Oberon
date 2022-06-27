@@ -23,15 +23,17 @@ export function CardsProject(){
   useEffect(()=> {
     async function get(){
       try{
-      const  {data} = await api.get('/projects', {
 
-        headers: {
-          'Content-Type': 'application/json',
-          'authorization': 'Bearer '+token
-        },      
-      }) 
+        
+        const  {data} = await api.get('/projects', {
 
-      setDataCard(data)
+          headers: {
+            'Content-Type': 'application/json',
+            'authorization': 'Bearer '+token
+          },      
+        }) 
+
+        setDataCard(data)
      }catch(err){
       return alert(err)
      }

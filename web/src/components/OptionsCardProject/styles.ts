@@ -38,15 +38,6 @@ export const Container = styled.div`
 `;
 
 
-export const ButtonDetails = styled.button`
- 
-
-
-  a{
-   
-  }
- 
-`
 export const Separete = styled.div`
   width: 90%;
   height: 5%;

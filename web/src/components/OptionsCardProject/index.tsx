@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import { api } from '../../services/api'
 import {
   Container,
-  ButtonDetails,
   Separete,
   ButtonDelete,
 } from './styles'
@@ -10,8 +9,10 @@ import {
 interface OptionsCardProjectProps{
   id:string
 }
-    
-export function OptionsCardProject({id}:OptionsCardProjectProps){
+
+
+
+export function OptionsCardProject(props:OptionsCardProjectProps){
 
   const token = localStorage.getItem('token')
 
@@ -19,7 +20,7 @@ export function OptionsCardProject({id}:OptionsCardProjectProps){
   async function DeleteOneCardProject(){
     await api.delete('/project' , {
       data:{
-        id
+        id:props.id
       },
       headers: {
         'Content-Type': 'application/json',
@@ -33,7 +34,7 @@ export function OptionsCardProject({id}:OptionsCardProjectProps){
  
   return(
     <Container>
-      <Link to={`/project/details/${id}`}>
+      <Link to={`/project/details/${props.id}`}>
         Detalhes
       </Link>
       
