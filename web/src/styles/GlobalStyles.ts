@@ -38,6 +38,8 @@ export default createGlobalStyle`
   }
   html , body ,#root{
     height:100vh;
+
+    
   }
   html,body{
     background-color:#302B27 ;
@@ -50,5 +52,32 @@ export default createGlobalStyle`
   label{
     visibility: hidden ;
     position: absolute;
+  }
+  .btn {
+    height: 2.5rem;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    &:hover{
+     filter: brightness(1.2);
+     transition: 0.5s;
+    }
+
+  }
+
+  .btn-success{
+    background:#08A045;
+    color: #000;
+    font-weight: bold;
+
+   
+  }
+
+  .btn-danger{
+    background-color: #AD2E24;
+    color:#000;
+    font-weight: bold;
+    margin-right: 15px;
   }
 `

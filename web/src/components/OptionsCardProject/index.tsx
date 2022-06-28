@@ -1,6 +1,9 @@
 import { Link } from 'react-router-dom'
 import { api } from '../../services/api'
+
 import Swal from 'sweetalert2'
+
+
 import {
   Container,
   Separete,
@@ -67,13 +70,19 @@ export function OptionsCardProject(props:OptionsCardProjectProps){
           'Projeto Deletado.',
           'success'
         )
+        return document.location.reload()
 
       }else if(result.dismiss === Swal.DismissReason.cancel){
-        swalWithBootstrapButtons.fire(
-          'Cancelado',
-        )
+        swalWithBootstrapButtons.fire({
+          icon: 'error',
+          title:'Cancelado'
+        })
+
       }
+
+
     })
+
   }
  
   return(
