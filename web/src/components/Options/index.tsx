@@ -13,13 +13,12 @@ interface PropsOptions{
 
 export function Options({id , nameGithub}:PropsOptions){
 
-  async function DeleteOneProfile(){   
+  async function DeleteOneProfile(){  
       await api.delete('/delete' , {
       data:{
         id
       }
     })
-
     document.location.reload()
   } 
 

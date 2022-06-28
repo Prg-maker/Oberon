@@ -10,6 +10,8 @@ import {
 } from './styles'
 import { api } from '../../services/api'
 import { ArrowRight } from 'phosphor-react'
+import Swal from 'sweetalert2'
+import { useNavigate } from 'react-router-dom'
     
     
 export function CreateProject(){
@@ -46,7 +48,14 @@ export function CreateProject(){
       })      
 
 
-      return alert('projeto criado')
+      await Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: 'usuário criado',
+        showConfirmButton: false,
+        timer: 1500
+      })
+      window.history.back()
 
     }catch(err){
       return alert(err)
