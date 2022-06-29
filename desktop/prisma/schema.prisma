@@ -1,16 +1,13 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../src/database/generated/client"
 }
 
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
 }
-
 
 
 model User{
@@ -28,13 +25,8 @@ model Projects{
   title String
   details String
   repositoryGit String?
-  progress String?
+  progress Int? 
   createdAt DateTime @default(now())
   updatedAt  DateTime @updatedAt()
 }
 
-model Test{
-  id String @id @default(uuid())
-  message String
-
-}

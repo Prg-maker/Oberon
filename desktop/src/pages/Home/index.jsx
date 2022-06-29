@@ -3,19 +3,14 @@ import {
   Container,
 } from './styles'
 
+import {createUser} from '../../hooks'
+
 
 export function Home(){
 
-  async function Create(){
-
-
-
-  }
 
   return(
     <Container>
-      <button onClick={Create}>Adicionar</button>
-      asdas
     </Container>
   )
 }
