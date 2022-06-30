@@ -4,7 +4,7 @@ import {
   Avatar,
 } from './styles'
     
-import {SortAscending, User} from 'phosphor-react'
+import {SortAscending, User , ArrowLeft} from 'phosphor-react'
     
 interface HeaderProps{
   data:{
@@ -21,9 +21,21 @@ export function Header({
 
   const {name,nameGithub} = data
 
+
+  function handleReturnPage(){
+    window.history.back()
+
+  }
+
   return(
     <Container>
-      <Name>{name}</Name>
+
+      <div className='btn-back'>
+        <ArrowLeft onClick={handleReturnPage} className='arrowLeft' size={32} weight='bold'/>
+
+        <Name>{name}</Name>
+      </div>
+    
 
 
       <div>

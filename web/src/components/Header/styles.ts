@@ -10,6 +10,23 @@ export const Container = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  .btn-back{
+    display: flex;
+    align-items: center;
+    margin-left: 20px;
+
+    .arrowLeft{
+      cursor: pointer;
+      background-color: #7E7C7C;
+      border-radius: 50%;
+
+      &:hover{
+       background-color: #fff;
+        transition: 0.5s;
+      }
+    }
+  }
+
  
 `;
 
@@ -33,7 +50,6 @@ export const Avatar = styled.img`
   margin-right: 8px;
 
   @media (max-width: 600px) {
-    width: 40px;
-    height: 40px;
+    display: none;
   }
 `
