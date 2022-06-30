@@ -14,6 +14,7 @@ class ProjectsRepositorys {
       const {
         userId,
         title,
+        
         details,
         repositoryGit,
         progress,

@@ -78,10 +78,16 @@ class UserRepository {
   async deleteOne(id){
 
 
-   
+   await prismaClient.projects.deleteMany({
+     where:{
+       userId: id
+     }
+   })
 
 
     try{
+
+      await prismaClient
 
       const userDelete = await prismaClient.user.delete({
         where:{
