@@ -9,19 +9,20 @@ import { Options } from '../Options'
 import { useState } from 'react'
 
 interface PropsCard{
-  id:string;
+  cardId:string;
   name:string;
   nameGithub?: string;
 }
 
 
 export function Card({
-  id,
+  cardId,
   name,
   nameGithub
 }:PropsCard){
 
   const [isOptions , setIsOptions] = useState(false)
+
 
   function handleIsOptionsOpen(){
     setIsOptions(!isOptions)
@@ -37,7 +38,7 @@ export function Card({
         }
         <DotsThreeVertical className='ponts' size={32} weight="bold" style={{cursor:'pointer'}} onClick={handleIsOptionsOpen} />
         
-        {isOptions && <Options id={id} nameGithub={nameGithub}/> }
+        {isOptions && <Options cardId={cardId} nameGithub={nameGithub}/> }
       </div>
 
       <Name>{name}</Name>

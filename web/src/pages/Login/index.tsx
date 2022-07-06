@@ -30,7 +30,8 @@ interface PropsData {
 
 export function Login(){
   localStorage.clear()
-  const {setState , state} = useContext(UserContext)
+
+  const {setState } = useContext(UserContext)
 
 
   const navigation = useNavigate()

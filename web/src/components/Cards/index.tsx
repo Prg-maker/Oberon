@@ -1,4 +1,3 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import { api } from '../../services/api'
 import { Card } from '../Card'
@@ -6,6 +5,8 @@ import { CardCreate } from '../CardCreate'
 import {
   Container
 } from './styles'
+
+
 interface PropsListUsers{
   id:string;
   name:string;
@@ -32,7 +33,7 @@ export function Cards(){
       <CardCreate/>
       {
         listUsers.map(user=> (
-          <Card  key={user.id} id={user.id} name={user.name} nameGithub={user.nameGithub}/>
+          <Card  key={user.id} cardId={user.id} name={user.name} nameGithub={user.nameGithub}/>
         ))
       }
       

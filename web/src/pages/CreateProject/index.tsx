@@ -51,7 +51,7 @@ export function CreateProject(){
       await Swal.fire({
         position: 'center',
         icon: 'success',
-        title: 'usuário criado',
+        title: 'projeto criado',
         showConfirmButton: false,
         timer: 1500
       })

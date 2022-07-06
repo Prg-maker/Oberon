@@ -7,16 +7,16 @@ import {
   ButtonDelete,
 } from './styles'
 interface PropsOptions{
-  id:string,
+  cardId:string,
   nameGithub?:string
 }
 
-export function Options({id , nameGithub}:PropsOptions){
+export function Options(props:PropsOptions){
 
   async function DeleteOneProfile(){  
       await api.delete('/delete' , {
       data:{
-        id
+        id:props.cardId
       }
     })
     document.location.reload()
@@ -27,7 +27,7 @@ export function Options({id , nameGithub}:PropsOptions){
     <OptionsContainer  >
 
       <ButtonLogin >
-        <Link to={`/login/${nameGithub? nameGithub : 'prg-maker'}`}>
+        <Link to={`/login/${props.nameGithub ? props.nameGithub : 'user'}`}>
           Entrar
         </Link>
       </ButtonLogin>
