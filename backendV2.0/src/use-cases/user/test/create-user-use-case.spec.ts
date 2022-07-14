@@ -8,7 +8,12 @@ const createUserUseCase = new CreateUserUseCase({
 })
 
 describe("testing create user use case", () => {
-  it("should verify if the name and password are provided, else return one error personalized", async () => {
-    
+  it("should verify if the name  are provided, else return one error personalized", async () => {
+
+    await expect(createUserUseCase.execute({
+      name:'',
+      password:'fake_password'
+    })).rejects.toThrow()
   });
+  
 });

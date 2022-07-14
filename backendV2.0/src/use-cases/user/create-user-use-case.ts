@@ -1,28 +1,25 @@
 import { PrismaUserRepository } from "../../repository/prisma/prisma-user-repository";
 
-interface CreateUserRequest{
+interface CreateUserRequest {
   name: string;
-  password:string;
-  github:string;
+  password: string;
+  github?: string;
 }
 
+export class CreateUserUseCase {
+  constructor(private prismaUserRepository: PrismaUserRepository) {}
 
-export class CreateUserUseCase{
+  async execute(request: CreateUserRequest) {
 
-  constructor(
-    private prismaUserRepository: PrismaUserRepository
-  ){}
 
-  execute(request: CreateUserRequest){
-
-    try{
-      this.prismaUserRepository.create({
-        name:request.name,
-        password:request.password,
-        github: request.github
-      })
-    }catch(err){
-      throw new Error('user not create')
+    if(!request.name){
+      throw new Error('O nome não foi fornecido')
     }
+
+    await this.prismaUserRepository.create({
+      name: request.name,
+      password: request.password,
+      github: request.github,
+    });
   }
 }
