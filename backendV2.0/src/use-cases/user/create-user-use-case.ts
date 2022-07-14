@@ -16,6 +16,11 @@ export class CreateUserUseCase {
       throw new Error('O nome não foi fornecido')
     }
 
+    if(!request.password){
+      throw new Error('O nome não foi fornecido')
+    }
+
+
     await this.prismaUserRepository.create({
       name: request.name,
       password: request.password,

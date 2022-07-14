@@ -16,4 +16,12 @@ describe("testing create user use case", () => {
     })).rejects.toThrow()
   });
   
+
+  it("should verify if the password  are provided, else return one error personalized", async () => {
+
+    await expect(createUserUseCase.execute({
+      name:'fake_name',
+      password:''
+    })).rejects.toThrow()
+  });
 });
