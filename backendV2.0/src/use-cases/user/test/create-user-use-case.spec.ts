@@ -7,6 +7,8 @@ const createUserUseCase = new CreateUserUseCase({
   create: createUserSpy
 })
 
+
+
 describe("testing create user use case", () => {
   it("should verify if the name  are provided, else return one error personalized", async () => {
 
@@ -24,4 +26,11 @@ describe("testing create user use case", () => {
       password:''
     })).rejects.toThrow()
   });
+
+  it('should create one user' ,async  ()=> {
+    await expect(createUserUseCase.execute({
+      name:'fake_name',
+      password:'fake_password'
+    })).resolves.not.toThrow()
+  })
 });
