@@ -895,6 +895,14 @@
   "resolved" "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   "version" "1.0.2"
 
+"bcrypto@^5.4.0":
+  "integrity" "sha512-KDX2CR29o6ZoqpQndcCxFZAtYA1jDMnXU3jmCfzP44g++Cu7AHHtZN/JbrN/MXAg9SLvtQ8XISG+eVD9zH1+Jg=="
+  "resolved" "https://registry.npmjs.org/bcrypto/-/bcrypto-5.4.0.tgz"
+  "version" "5.4.0"
+  dependencies:
+    "bufio" "~1.0.7"
+    "loady" "~0.0.5"
+
 "binary-extensions@^2.0.0":
   "integrity" "sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA=="
   "resolved" "https://registry.npmjs.org/binary-extensions/-/binary-extensions-2.2.0.tgz"
@@ -936,6 +944,11 @@
   "integrity" "sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ=="
   "resolved" "https://registry.npmjs.org/buffer-from/-/buffer-from-1.1.2.tgz"
   "version" "1.1.2"
+
+"bufio@~1.0.7":
+  "integrity" "sha512-bd1dDQhiC+bEbEfg56IdBv7faWa6OipMs/AFFFvtFnB3wAYjlwQpQRZ0pm6ZkgtfL0pILRXhKxOiQj6UzoMR7A=="
+  "resolved" "https://registry.npmjs.org/bufio/-/bufio-1.0.7.tgz"
+  "version" "1.0.7"
 
 "callsites@^3.0.0":
   "integrity" "sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ=="
@@ -1822,6 +1835,11 @@
   "integrity" "sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg=="
   "resolved" "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz"
   "version" "1.2.4"
+
+"loady@~0.0.5":
+  "integrity" "sha512-uxKD2HIj042/HBx77NBcmEPsD+hxCgAtjEWlYNScuUjIsh/62Uyu39GOR68TBR68v+jqDL9zfftCWoUo4y03sQ=="
+  "resolved" "https://registry.npmjs.org/loady/-/loady-0.0.5.tgz"
+  "version" "0.0.5"
 
 "locate-path@^5.0.0":
   "integrity" "sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g=="

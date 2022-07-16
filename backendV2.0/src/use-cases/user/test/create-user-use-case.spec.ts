@@ -33,4 +33,17 @@ describe("testing create user use case", () => {
       password:'fake_password'
     })).resolves.not.toThrow()
   })
+
+  it('should verify if length the name is 3 or small' ,async  ()=> {
+    await expect(createUserUseCase.execute({
+      name:'fds',
+      password:'fake_password'
+    })).rejects.toThrow()
+  })
+  it('should verify if length the password is 8 or small' ,async  ()=> {
+    await expect(createUserUseCase.execute({
+      name:'fak',
+      password:'123'
+    })).rejects.toThrow()
+  })
 });
