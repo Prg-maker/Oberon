@@ -50,8 +50,8 @@ describe("testing create user use case", () => {
 
   it('should return error, why the user already exist' , async ()=> {
     await expect(createUserUseCase.execute({
-      name:'fak',
-      password:'123'
+      name:'JADE',
+      password:'54d65456465454654564654'
     })).rejects.toThrow()
   })
 });

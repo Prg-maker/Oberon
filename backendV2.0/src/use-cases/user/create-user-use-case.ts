@@ -10,12 +10,10 @@ interface CreateUserRequest {
 export class CreateUserUseCase {
   constructor(
     private prismaUserRepository: PrismaUserRepository,
-    public useFindUserByName = new UseFindUserByName()
-  ) {
-  }
+  ){}
 
   
-
+  
   
   async execute(request: CreateUserRequest)   {
 
@@ -31,12 +29,17 @@ export class CreateUserUseCase {
       throw new Error('O nome não foi fornecido')
     }
 
-    const name = request.name.toLocaleUpperCase()
+    const name = request.name.toUpperCase()
 
-    this.useFindUserByName.findByName({
+    const useFindUserByName = new UseFindUserByName()
+
+    await useFindUserByName.findByName({
       name
     })
 
+    
+   
+    
     await this.prismaUserRepository.create({
       name,
       password: request.password,

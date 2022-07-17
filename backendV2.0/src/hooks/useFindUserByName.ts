@@ -7,24 +7,24 @@ export class UseFindUserByName implements UseFindUserDataProps{
  async findByName (data:DataProps){
   const {name} = data
 
-  if(!name){
+
+
+  if(!name ){
     throw new Error('name does not provided')
   }
   
-
   const nameAlreadyExist = await prisma.user.findFirst({
     where:{
-      name
+      name:name.toUpperCase()
     }
   })
 
-  if(nameAlreadyExist){
-    throw new Error('User already exist')
+  if(!nameAlreadyExist){
+    return null
   }
 
- 
+  throw new Error('User already exist')
 
-  return null
 
  }
 }

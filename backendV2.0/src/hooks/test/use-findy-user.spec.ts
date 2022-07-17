@@ -5,8 +5,9 @@ const useFindUserByName = new UseFindUserByName()
 
 describe('testing useFindUserByName', () => { 
   it('should verify if the name is provide, else return error' , async  ()=> {
-   await  expect(useFindUserByName.findByName({
-      name:""
+  
+    await expect(useFindUserByName.findByName({
+      name:''
     })).rejects.toThrow()
   })
 
@@ -19,7 +20,7 @@ describe('testing useFindUserByName', () => {
   it('should return one error if name exist',   async ()=> {
 
     await expect( useFindUserByName.findByName({
-      name:'jade'
+      name:'JADE'
     })).rejects.toThrow()
 
 
