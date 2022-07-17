@@ -1,5 +1,5 @@
 import { PrismaUserRepository } from "../../repository/prisma/prisma-user-repository";
-
+import {UseFindUserByName} from '../../hooks/useFindUserByName'
 
 interface CreateUserRequest {
   name: string;
@@ -8,8 +8,15 @@ interface CreateUserRequest {
 }
 
 export class CreateUserUseCase {
-  constructor(private prismaUserRepository: PrismaUserRepository) {}
+  constructor(
+    private prismaUserRepository: PrismaUserRepository,
+    public useFindUserByName = new UseFindUserByName()
+  ) {
+  }
 
+  
+
+  
   async execute(request: CreateUserRequest)   {
 
 
@@ -17,16 +24,21 @@ export class CreateUserUseCase {
       throw new Error('O nome não foi fornecido ou muito curto')
     }
 
-
+    
 
 
     if(!request.password || request.password.length <= 3){
       throw new Error('O nome não foi fornecido')
     }
 
+    const name = request.name.toLocaleUpperCase()
+
+    this.useFindUserByName.findByName({
+      name
+    })
 
     await this.prismaUserRepository.create({
-      name: request.name,
+      name,
       password: request.password,
       github: request.github,
     });

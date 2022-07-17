@@ -18,12 +18,13 @@ export class UseFindUserByName implements UseFindUserDataProps{
     }
   })
 
-  if(!nameAlreadyExist){
-    return null
+  if(nameAlreadyExist){
+    throw new Error('User already exist')
   }
 
-  throw new Error('User already exist')
+ 
 
+  return null
 
  }
 }

@@ -1,10 +1,11 @@
 import {CreateUserUseCase} from '../create-user-use-case'
 
 
+
 const createUserSpy = jest.fn()
 
 const createUserUseCase = new CreateUserUseCase({
-  create: createUserSpy
+  create: createUserSpy,
 })
 
 
@@ -41,6 +42,13 @@ describe("testing create user use case", () => {
     })).rejects.toThrow()
   })
   it('should verify if length the password is 8 or small' ,async  ()=> {
+    await expect(createUserUseCase.execute({
+      name:'fak',
+      password:'123'
+    })).rejects.toThrow()
+  })
+
+  it('should return error, why the user already exist' , async ()=> {
     await expect(createUserUseCase.execute({
       name:'fak',
       password:'123'
