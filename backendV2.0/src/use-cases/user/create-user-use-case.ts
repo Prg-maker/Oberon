@@ -1,5 +1,6 @@
 import { PrismaUserRepository } from "../../repository/prisma/prisma-user-repository";
 
+
 interface CreateUserRequest {
   name: string;
   password: string;
@@ -9,14 +10,13 @@ interface CreateUserRequest {
 export class CreateUserUseCase {
   constructor(private prismaUserRepository: PrismaUserRepository) {}
 
-  async execute(request: CreateUserRequest) {
+  async execute(request: CreateUserRequest)   {
 
 
     if(!request.name || request.name.length <= 3){
       throw new Error('O nome não foi fornecido ou muito curto')
     }
 
-   
 
 
 
