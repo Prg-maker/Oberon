@@ -1,4 +1,4 @@
-import { UserData } from '../entities/User'
+import { UserData, UserDataDelete } from '../entities/User'
 import {UserRepository} from '../user-repository'
 import {prisma} from '../../prisma'
 
@@ -11,6 +11,16 @@ export class PrismaUserRepository implements UserRepository{
         name,
         password,
         github
+      }
+    })
+
+  }
+
+  async delete(data: UserDataDelete){
+
+    await prisma.user.delete({
+      where:{ 
+       id: data.id
       }
     })
 

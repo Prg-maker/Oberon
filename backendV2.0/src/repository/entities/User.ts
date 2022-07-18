@@ -3,3 +3,7 @@ export interface UserData{
   password: string;
   github?: string;
 }
+
+export interface UserDataDelete{
+  id:string
+}

@@ -1,5 +1,6 @@
-import { UserData } from "./entities/User";
+import { UserData  , UserDataDelete} from "./entities/User";
 
 export interface UserRepository{
-  create: (data:UserData) => Promise<void>
+  create: (data:UserData) => Promise<void>,
+  delete: (data:UserDataDelete) => Promise<void>
 }
