@@ -4,14 +4,16 @@ interface DeleteUserResponse{
   id:string
 }
 
-class DeleteUserUseCase{
+export class DeleteUserUseCase{
  constructor(
    private prismaUserRepository: PrismaUserRepository
  ){}
 
  async execute(response:DeleteUserResponse){
+  if(!response.id){
+    throw new Error('O id não foi fornecido')
+  }
 
-  if()
    
  }
 }
