@@ -9,7 +9,7 @@ export class UseFindUserByName implements UseFindUserDataProps{
 
 
 
-  if(!name ){
+  if(!name){
     throw new Error('name does not provided')
   }
   

@@ -13,9 +13,21 @@ const createUserUseCase = new DeleteUserUseCase({
 
 
 describe("testing delete user use case", () => {
+
   it("should verify the id is provided" , async ()=> {
     await expect(createUserUseCase.execute({
       id: ''
     })).rejects.toThrow()
   })
+
+    
+  it("should verify the id is provided" , async ()=> {
+    await expect(createUserUseCase.execute({
+      id: '456456'
+    })).resolves.not.toThrow()
+  })
+
+
+
+
 });

@@ -7,3 +7,15 @@ export interface UserData{
 export interface UserDataDelete{
   id:string
 }
+
+
+
+export interface UserResponseList{
+ 
+  id:string;
+  name: string;
+  password: string;
+  github?: string;
+}
+
+
