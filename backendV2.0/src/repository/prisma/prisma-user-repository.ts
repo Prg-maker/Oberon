@@ -30,6 +30,7 @@ export class PrismaUserRepository implements UserRepository{
 
     const Users = await prisma.user.findMany() as UserResponseList[]
 
+
     return Users
 
   }
