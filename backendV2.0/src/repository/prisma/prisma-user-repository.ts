@@ -26,11 +26,11 @@ export class PrismaUserRepository implements UserRepository{
     })
   }
 
-  async listAllUsers(data:UserResponseList){
+  async listAllUsers(){
 
     const Users = await prisma.user.findMany() as UserResponseList[]
 
-    return data
+    return Users
 
   }
 
