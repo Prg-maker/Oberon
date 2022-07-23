@@ -1,4 +1,4 @@
-import { UserData, UserDataDelete, UserResponseList } from '../entities/User'
+import { UserData, UserDataDelete, UserResponseList ,  RequestOneUserData, ResponseOneUserData} from '../entities/User'
 import {UserRepository} from '../user-repository'
 import {prisma} from '../../prisma'
 
@@ -35,4 +35,8 @@ export class PrismaUserRepository implements UserRepository{
 
   }
 
+
+  requestOneUser(data:RequestOneUserData){
+   
+  }
 }

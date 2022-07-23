@@ -9,7 +9,6 @@ export interface UserDataDelete{
 }
 
 
-
 export interface UserResponseList{
  
   id:string;
@@ -19,3 +18,14 @@ export interface UserResponseList{
 }
 
 
+export interface RequestOneUserData{
+  name:string;
+  password:string;
+}
+
+
+export interface ResponseOneUserData{
+  name:string;
+  github?:string;
+
+}
