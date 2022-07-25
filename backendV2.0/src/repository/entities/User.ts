@@ -4,7 +4,7 @@ export interface UserData{
   github?: string;
 }
 
-export interface UserDataDelete{
+export interface UserDataId{
   id:string
 }
 
@@ -18,10 +18,6 @@ export interface UserResponseList{
 }
 
 
-export interface RequestOneUserData{
-  name:string;
-  password:string;
-}
 
 
 export interface ResponseOneUserData{

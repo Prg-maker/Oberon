@@ -1,8 +1,8 @@
-import { UserData  , UserDataDelete , UserResponseList, RequestOneUserData, ResponseOneUserData} from "./entities/User";
+import { UserData  , UserDataId , UserResponseList, ResponseOneUserData} from "./entities/User";
 
 export interface UserRepository{
   create: (data:UserData) => Promise<void>,
-  delete: (data:UserDataDelete) => Promise<void>,
+  delete: (data:UserDataId) => Promise<void>,
   listAllUsers:()=> Promise<UserResponseList[] >
-  requestOneUser: (data:RequestOneUserData)=> Promise<ResponseOneUserData>
+  requestOneUser: (data:UserDataId)=> Promise<ResponseOneUserData[]>
 }
