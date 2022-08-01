@@ -1,4 +1,4 @@
-import {UseFindUserDataProps , DataProps , Error} from './data-user-props-find'
+import {UseFindUserDataProps , DataProps , Error} from './tipagem/data-user-props-find'
 import {prisma} from '../prisma'
 
 
