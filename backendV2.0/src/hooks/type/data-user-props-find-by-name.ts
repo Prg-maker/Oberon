@@ -11,10 +11,3 @@ export interface UseFindUserDataProps{
 }
 
 
-export interface Id{
-  id:string
-}
-
-export interface UseFinUserById{
-  findById: (data:Id)=> Promise<Error | null>
-}
