@@ -14,37 +14,32 @@ export class CreateUserUseCase {
   ){}
 
   
+
+  
   
   
   async execute(request: CreateUserRequest)   {
-
+    const {password,github} = request
 
     if(!request.name || request.name.length <= 3){
       throw new Error('O nome não foi fornecido ou muito curto')
     }
 
-    
 
-
-    if(!request.password || request.password.length <= 3){
-      throw new Error('O nome não foi fornecido')
+    if(!password || password.length <= 3){
+      throw new Error('A senha não foi fornecido ou muito pequena')
     }
 
     const name = request.name.toUpperCase()
 
     const useFindUserByName = new UseFindUserByName()
 
-    await useFindUserByName.findByName({
-      name
-    })
-
-    
-   
-    
+    await useFindUserByName.findByName({name})
+      
     await this.prismaUserRepository.create({
-      name,
-      password: request.password,
-      github: request.github,
+      name:name.toUpperCase(),
+      password,
+      github,
     });
   }
 }
