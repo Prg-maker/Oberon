@@ -3,7 +3,6 @@ import {
   Container,
 } from './styles'
 
-import {createUser} from '../../hooks'
 
 
 export function Home(){
@@ -11,6 +10,7 @@ export function Home(){
 
   return(
     <Container>
+      <Cards/>
     </Container>
   )
 }
