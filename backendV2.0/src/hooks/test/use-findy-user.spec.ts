@@ -13,7 +13,7 @@ describe('testing useFindUserByName', () => {
 
   it('should verify if the user exist' ,async ()=> {
     await expect(useFindUserByName.findByName({
-      name:"daniel"
+      name:"test"
     })).resolves.not.toThrow()
   })
 

@@ -12,5 +12,15 @@ export class ListOneUserUseCase{
     if(!id){
       throw new Error('id does not provided')
     }
+
+    const user = await this.prismaUseRepository.requestOneUser({
+      id
+    })
+
+    if(!user){
+      throw new Error("User does not exist");
+    }
+
+    return user 
   }
 }
