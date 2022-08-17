@@ -11,10 +11,13 @@ export class ListAllUsersController{
 
     try{
 
-      const projects = await listAllUsersUseCase.execute()
+      const users = await listAllUsersUseCase.execute()
 
-      console.log(projects)
-      return response.status(200).json(projects)
+      users.map(user => {
+         user.password = ''
+      })
+
+      return response.status(200).json(users)
 
     }catch({message}){
       return response.status(400).json({

@@ -1,7 +1,6 @@
 import {UseFindUserDataProps , DataProps , Error} from './type/data-user-props-find-by-name'
 import {prisma} from '../prisma'
 
-
 export class UseFindUserByName implements UseFindUserDataProps{
 
  async findByName (data:DataProps){

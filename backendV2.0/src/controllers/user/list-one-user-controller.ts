@@ -21,6 +21,8 @@ export class ListOneUserController{
       const user = await listOneUserUseCase.execute({
         id
       })
+
+    
       return response.status(200).json({
         user
       })
