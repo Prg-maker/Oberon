@@ -18,6 +18,7 @@ export class UseFindUserByName implements UseFindUserDataProps{
     }
   })
 
+
   if(!nameAlreadyExist){
     return null
   }

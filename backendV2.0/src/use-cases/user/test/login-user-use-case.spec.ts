@@ -14,12 +14,16 @@ describe('testing login user use case'  , ()=> {
     })).rejects.toThrow()
   })
 
-  test('should verify if the user exist by name', async () => { 
+ 
+
+
+  test('should verify if the user exist', async () => { 
 
     await expect(loginUserUseCase.execute({
-      name:'fake_name_test',
-      password:'123545645645647897'
-    })).rejects.toThrow()
+      name:'DANIEL',
+      password:'12345678'
+    })).resolves.not.toThrow()
 
   })
+
 })
