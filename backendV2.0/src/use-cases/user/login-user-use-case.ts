@@ -5,12 +5,15 @@ interface LoginUserRequest{
   password:string
 }
 
+
+
 export class LoginUserUseCase{
   
 
   constructor(
     private prismaLoginUserRepository: PrismaLoginUserRepository
   ){}
+
   
   async execute(request:LoginUserRequest){
     const {password} = request
@@ -19,9 +22,12 @@ export class LoginUserUseCase{
 
     if(!password || !name){
       throw new Error('name or password does not provided')
-    }
+    } 
 
-    console.log(name)    
+    await this.prismaLoginUserRepository.login({
+      name,
+      password
+    })
 
 
   }
