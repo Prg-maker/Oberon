@@ -8,7 +8,6 @@ export class ListAllUsersController{
     const prismaUserRepository  = new PrismaUserRepository()
     const listAllUsersUseCase = new ListAllUsersUseCase(prismaUserRepository)
 
-
     try{
 
       const users = await listAllUsersUseCase.execute()
