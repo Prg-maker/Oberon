@@ -23,9 +23,7 @@ export class ListOneUserController{
       })
 
     
-      return response.status(200).json({
-        user
-      })
+      return response.status(200).json(user)
 
     }catch({message}){
       return response.status(400).json({

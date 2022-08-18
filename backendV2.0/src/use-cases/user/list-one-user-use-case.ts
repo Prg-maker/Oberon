@@ -17,7 +17,8 @@ export class ListOneUserUseCase{
       id
     })
 
-    if(!user){
+
+    if(user.length == 0|| !user ){
       throw new Error("User does not exist");
     }
 

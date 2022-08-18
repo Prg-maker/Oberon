@@ -1,7 +1,6 @@
 import { PrismaUserRepository } from "../../repository/prisma/prisma-user-repository";
 import {UseFindUserByName} from '../../hooks/useFindUserByName'
 
-
 interface CreateUserRequest {
   name: string;
   password: string;
@@ -9,14 +8,10 @@ interface CreateUserRequest {
 }
 
 export class CreateUserUseCase {
+
   constructor(
     private prismaUserRepository: PrismaUserRepository,
   ){}
-
-  
-
-  
-  
   
   async execute(request: CreateUserRequest)   {
     const {password,github} = request
