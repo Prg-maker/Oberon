@@ -3,7 +3,6 @@ import {verify} from 'jsonwebtoken';
 
 interface ILogin{
   id:string;
-  name:string;
 }
 
 export class AuthLogin{
@@ -22,7 +21,9 @@ export class AuthLogin{
     try{
       
       verify(token , `${process.env.jTW}` , (err , decoded)=> {
-        console.log(decoded)
+        const {id} = decoded as ILogin
+        return next()
+
       }) 
 
     }catch({message}){
