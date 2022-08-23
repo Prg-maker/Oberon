@@ -1,10 +1,9 @@
 import {Request , Response , NextFunction} from 'express';
-import jwt from 'jsonwebtoken';
+import {verify} from 'jsonwebtoken';
 
 interface ILogin{
   id:string;
   name:string;
-  password:string;
 }
 
 export class AuthLogin{
@@ -18,17 +17,19 @@ export class AuthLogin{
       })
     }
 
-    const [,token] = authToken.split('')
-
+    const [, token] = authToken.split(' ')
 
     try{
-      const data = jwt.verify(token , `${process.env.JWT}`) as ILogin
-
-      request.headers.user
-      console.log(data)
       
-    }catch(err){
+      verify(token , `${process.env.jTW}` , (err , decoded)=> {
+        console.log(decoded)
+      }) 
 
+    }catch({message}){
+      return response.status(401).json({
+        message
+      })
     }
+
   }
 }
