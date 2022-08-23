@@ -3,18 +3,27 @@ import { CardCreate } from '../CardCreate'
 import {
   Container
 } from './styles'
+import { api } from '../../services'
+import { useEffect , useState } from 'react'
 
-    
-    
 export function Cards(){
+  const  [users , setUsers] = useState([])
+  useEffect(() => {
+    async function get(){
+      const {data} = await api.get('/' )
+      setUsers(data)
+    }
 
+    get()
+  }, [])
 
+  console.log(users)
 
   return(
     <Container>
       <CardCreate/>
-      <Card/>
-      <Card/>
+
+      
     </Container>
   )
 }
