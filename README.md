@@ -1,5 +1,5 @@
 # Oberon
--software para monitorar o meus projetos <br/>
+-software para monitorar os projetos <br/>
 -software to track my projects <br />
  * Ainda está em desenvolvimento 
 
