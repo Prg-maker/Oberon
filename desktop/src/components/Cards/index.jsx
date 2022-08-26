@@ -22,8 +22,18 @@ export function Cards(){
   return(
     <Container>
       <CardCreate/>
+      {
+        users.map(user=> {
+          return(
+            <Card
+              name={user.name}
+              github={user?.github}
+              id={user.id}
+            />
+          )
+        })
+      }
 
-      
     </Container>
   )
 }

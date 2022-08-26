@@ -8,24 +8,35 @@ import {DotsThreeVertical} from 'phosphor-react'
 import { useState } from 'react'
 import { Options } from '../Options'
 
-export function Card(){
+export function Card({
+  id,
+  name,
+  github
+}){
 
   const [isOptions , setIsOptions] = useState(false)
 
   function handleIsOptionsOpen(){
     setIsOptions(!isOptions)
   }
-
+  console.log(github)
+  
   return(
     <Container>
       <div>
-        <Avatar src='https://github.com/Prg-maker.png'/>
+        {
+          github? 
+          <Avatar src={`https://github.com/danieç.png`}/>
+          :
+          "Não foi informado"
+        }
+
         <DotsThreeVertical size={32} weight="bold" style={{cursor:'pointer'}} onClick={handleIsOptionsOpen} />
         {isOptions && <Options/>}
         
       </div>
 
-      <Name>Daniel</Name>
+      <Name>{name}</Name>
     
     </Container>
   )
