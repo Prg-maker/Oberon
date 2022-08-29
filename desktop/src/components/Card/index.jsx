@@ -19,14 +19,13 @@ export function Card({
   function handleIsOptionsOpen(){
     setIsOptions(!isOptions)
   }
-  console.log(github)
   
   return(
     <Container>
       <div>
         {
           github? 
-          <Avatar src={`https://github.com/danieç.png`}/>
+          <Avatar src={`https://github.com/${github}.png`}/>
           :
           "Não foi informado"
         }

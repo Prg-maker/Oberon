@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.a`
   width: 15rem;
   width: 15rem;
   height: 15rem;

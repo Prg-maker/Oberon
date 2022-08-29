@@ -55,7 +55,9 @@ export function CreateUser(){
             <ArrowRight size={25} weight="bold" />
           </ButtonCreateProfile>
         
-            <ButtonBack>
+            <ButtonBack
+              href='/'
+            >
 
                 <ArrowLeft size={25} weight="bold" />
                 Voltar

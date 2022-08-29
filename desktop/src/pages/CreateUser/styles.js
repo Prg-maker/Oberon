@@ -165,7 +165,7 @@ export const ButtonCreateProfile = styled.button`
 
 
 
-export const ButtonBack = styled.button`
+export const ButtonBack = styled.a`
   width: 150px;
   height: 45px;
   border-radius: 7px;
