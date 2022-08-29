@@ -15,7 +15,7 @@ import {ArrowLeft} from 'phosphor-react'
 
 import { useState } from 'react'
 import {api} from '../../services'
-
+import {ResponseSuccess} from '../../components/ResponseSuccess'
 
 
 export function CreateUser(){
@@ -23,19 +23,20 @@ export function CreateUser(){
   const [name, setName] = useState('')
   const [password , setPassword] = useState('')
   const [github , setGithub] = useState('')
+  const [message, setMessage] = useState(false)
 
   async function handleCreteUser(event){
     event.preventDefault()
     
     try{
-      const response = await api.post('/' , {
+      await api.post('/' , {
         name,
         password,
         github
       })
-      console.log(response)
+      setMessage(true)
     }catch(err){
-      console.log(err)
+      return err
     }
   }
 
@@ -89,7 +90,10 @@ export function CreateUser(){
      
 
       </Form>
-      
+
+      {
+        !message? '' : <ResponseSuccess closeMessage={setMessage}/>
+      }
     </Container>
   )
 }
