@@ -7,17 +7,37 @@ import {
   ButtonBack
 } from './styles'
 
+
 import OberonImg from '../../assets/Ellipse.png'
 
 import {ArrowRight} from 'phosphor-react'
 import {ArrowLeft} from 'phosphor-react'
 
+import { useState } from 'react'
+import {api} from '../../services'
 
 
 
 export function CreateUser(){
 
+  const [name, setName] = useState('')
+  const [password , setPassword] = useState('')
+  const [github , setGithub] = useState('')
 
+  async function handleCreteUser(event){
+    event.preventDefault()
+    
+    try{
+      const response = await api.post('/' , {
+        name,
+        password,
+        github
+      })
+      console.log(response)
+    }catch(err){
+      console.log(err)
+    }
+  }
 
 
   return(
@@ -31,7 +51,7 @@ export function CreateUser(){
         <div className='name'>
           <label htmlFor="nome">Nome</label>
           <Title>Nome</Title>
-          <Input placeholder='Name' type="nome" />
+          <Input onChange={e => setName(e.target.value)} placeholder='Name' type="nome" />
         </div>
 
 
@@ -39,18 +59,20 @@ export function CreateUser(){
           <label htmlFor="github">Perfil do github</label>
           <Title>Perfil do github</Title>
           <strong>opcional*</strong>
-          <Input  placeholder='Perfil do github' type="text" id='github'/>
+          <Input onChange={e => setGithub(e.target.value)} placeholder='Perfil do github' type="text" id='github'/>
         </div>
 
 
         <div className='senha'>
           <label htmlFor="senha">Senha</label>
             <Title>Senha</Title>
-            <Input placeholder='Senha' type="password" id='senha'/>
+            <Input onChange={e => setPassword(e.target.value)} placeholder='Senha' type="password" id='senha'/>
         </div>
         
         <div className='buttons'>
-          <ButtonCreateProfile>
+          <ButtonCreateProfile
+            onClick={handleCreteUser}
+          >
             Criar
             <ArrowRight size={25} weight="bold" />
           </ButtonCreateProfile>

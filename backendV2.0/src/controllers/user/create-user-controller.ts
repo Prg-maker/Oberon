@@ -13,7 +13,6 @@ interface Request {
 export class CreateUserController{
   async handle(request: Request , response:Response){
     const {name , password , github} = request.body
-
     const prismaUserRepository = new PrismaUserRepository()
     const createUserUseCase= new CreateUserUseCase(prismaUserRepository)
 
@@ -31,7 +30,9 @@ export class CreateUserController{
       })
 
     }catch({message}){
-      response.status(400).json({
+      console.log(message)
+
+      return response.status(400).json({
         message
       })
     }
