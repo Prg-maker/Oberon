@@ -6,7 +6,6 @@ export const OptionsContainer= styled.div`
   display: flex;
   flex-direction: column;
   position: absolute;
-  background-color: red;
   border-radius: 10%;
   display: flex;
   justify-content: center;
@@ -28,18 +27,24 @@ export const OptionsContainer= styled.div`
 `;
 
 
-export const ButtonLogin = styled.button`
+export const ButtonLogin = styled.a `
   width: 100%;
   height: 100%;
   border-radius: 10px  10px  0 0;
 
-    color: var(--color-text_secondary);
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 24px;
-    text-align: center;
-    text-decoration: none;
-    cursor: pointer;
+  color: var(--color-text_secondary);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 `
 export const Separete = styled.div`
   width: 100%;

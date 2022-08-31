@@ -24,11 +24,13 @@ export function Options(props){
     }
   }
 
+
+
   
   return(
     <OptionsContainer>
 
-      <ButtonLogin >
+      <ButtonLogin href={`/login/${props.id}`}>
           Entrar
       </ButtonLogin>
 

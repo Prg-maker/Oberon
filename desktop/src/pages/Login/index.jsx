@@ -16,7 +16,7 @@ export function Login(){
   return(
     <Container>
       <div>
-        <img src={`https://github.com/Prg-Maker.png`} alt="Oberon"  />
+        <img src={`https://upload.wikimedia.org/wikipedia/commons/3/31/Oberon_-_PIA00034.jpg`} alt="Oberon"  />
       </div>
 
       <Form>
@@ -38,7 +38,7 @@ export function Login(){
         
         <div className='buttons'>
 
-        <ButtonBack>
+        <ButtonBack href='/'>
             <ArrowLeft size={25} weight="bold" />
             Voltar
         </ButtonBack>

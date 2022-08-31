@@ -122,7 +122,7 @@ export const ButtonEnterInProfile = styled.button`
 
 
 
-export const ButtonBack = styled.button`
+export const ButtonBack = styled.a`
   width: 45%;
   height: 45px;
   border-radius: 7px;
