@@ -13,7 +13,7 @@ export class DeleteUserController{
     const {id} =request.body
     const prismaUserRepository  = new PrismaUserRepository()
     const deleteUserUseCase = new DeleteUserUseCase(prismaUserRepository)
-    
+    console.log(id)
     try{
 
       await deleteUserUseCase.execute({

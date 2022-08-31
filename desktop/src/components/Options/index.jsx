@@ -5,18 +5,35 @@ import {
   ButtonDelete,
 } from './styles'
 
-export function Options(){
+import {api} from '../../services'
+
+export function Options(props){
+
+  async function handleDelete(){  
+    try{
+      await api.delete('/user' , {
+        data:{
+          id:props.id
+        }
+      })
+
+      return document.location.reload()
+
+    }catch({message}){
+      console.log(message)
+    }
+  }
 
   
   return(
-    <OptionsContainer  >
+    <OptionsContainer>
 
       <ButtonLogin >
           Entrar
       </ButtonLogin>
 
       <Separete/>
-      <ButtonDelete >
+      <ButtonDelete onClick={handleDelete}>
         Deletar
       </ButtonDelete>
     </OptionsContainer>

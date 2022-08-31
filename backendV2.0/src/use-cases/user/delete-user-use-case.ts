@@ -20,6 +20,7 @@ export class DeleteUserUseCase{
       id: response.id
     })
 
+
   }catch(err){
     throw new Error('Usuário não existe')
   }
