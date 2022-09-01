@@ -24,10 +24,9 @@ export function CreateUser(){
   const [password , setPassword] = useState('')
   const [github , setGithub] = useState('')
   const [message, setMessage] = useState(false)
-
+  
   async function handleCreteUser(event){
     event.preventDefault()
-    
     try{
       await api.post('/' , {
         name,
