@@ -5,12 +5,22 @@ import {
 } from './styles'
     
 import {SortAscending} from 'phosphor-react'
+import {useNavigate} from 'react-router-dom'
     
 
 
 export function Header({isOpenDetailsProject}){
 
-  
+  const navigation = useNavigate()
+
+
+  const token = localStorage.getItem('token')
+
+  if(!token){
+    navigation('/')
+  }
+
+
 
   return(
     <Container>

@@ -8,7 +8,7 @@ import {
 
     
 export function Projects(){
-
+  
   return(
     <Container>
       <IsOpenDetailsProject/>

@@ -1,13 +1,12 @@
-import { Login } from "./pages/Login";
-import {  DetailsProjectHome} from "./pages/DetailsProject";
 import GlobalStyles from "./styles/GlobalStyles";
 import {Router} from './Routes/routes-pages'
-
+import {UserAuthContextProvider} from './context/useContext'
 function App() {
   return (
     <div className="App">
-      <Router/>
-
+      <UserAuthContextProvider>
+        <Router/>
+      </UserAuthContextProvider>
       
       <GlobalStyles/>
     </div>

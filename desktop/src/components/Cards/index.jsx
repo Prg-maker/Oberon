@@ -26,6 +26,7 @@ export function Cards(){
         users.map(user=> {
           return(
             <Card
+              key={user.id}
               name={user.name}
               github={user?.github}
               id={user.id}

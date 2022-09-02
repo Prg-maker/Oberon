@@ -6,6 +6,7 @@ import {
 
 
 export function Home(){
+  localStorage.clear()
 
 
   return(

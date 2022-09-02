@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { DetailsProject } from "../components/DetailsProjects"
 import { Header } from "../components/Header"
+import {useNavigate} from 'react-router-dom'
 
 export function IsOpenDetailsProject(){
 
@@ -10,6 +11,10 @@ export function IsOpenDetailsProject(){
     setIsOpenDetailsProject(!isOpenDetailsProject)
     
   }
+
+
+
+
 
 
   return(

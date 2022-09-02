@@ -20,6 +20,9 @@ import {ResponseSuccess} from '../../components/ResponseSuccess'
 
 export function CreateUser(){
 
+
+  localStorage.clear()
+
   const [name, setName] = useState('')
   const [password , setPassword] = useState('')
   const [github , setGithub] = useState('')

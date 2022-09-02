@@ -5,10 +5,24 @@ import {
   ButtonCreateProject,
   Exit,
 } from './styles'
-    
+
+import {UserContext} from '../../context/useContext'
+import { useContext } from 'react'
+import {useNavigate} from 'react-router-dom'
     
 export function DetailsProject(){
-  return(
+
+  const navigation = useNavigate()
+
+  const {setState} = useContext(UserContext)
+
+  function handleLogout(){
+    setState({})
+    localStorage.clear()
+    navigation('/')
+  }
+
+    return(
     <Container>
 
       <div className='div'>
@@ -26,7 +40,9 @@ export function DetailsProject(){
         Criar Projeto
       </ButtonCreateProject>
 
-      <Exit>
+      <Exit
+        onClick={handleLogout}
+      >
         <SignOut size={20} weight="bold" style={{
           position:'absolute',
           left: 0,
