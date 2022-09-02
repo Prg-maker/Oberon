@@ -78,8 +78,11 @@ const styleButton = css`
   }
 `
 
-export const ButtonCreateProject = styled.button`
+export const ButtonCreateProject = styled.a`
   ${styleButton}
+  background-color: white;
+  text-decoration:none;
+  color: var(--color-text-black);
 `
 export const Exit = styled.button`
   ${styleButton}

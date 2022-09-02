@@ -10,7 +10,7 @@ import {UserContext} from '../../context/useContext'
 import { useContext } from 'react'
 import {useNavigate} from 'react-router-dom'
     
-export function DetailsProject(){
+export function   DetailsProject(){
 
   const navigation = useNavigate()
 
@@ -31,7 +31,9 @@ export function DetailsProject(){
       </div> 
 
 
-      <ButtonCreateProject>
+      <ButtonCreateProject
+        href='/user/project'
+      >
         <Plus size={20} weight="bold" style={{
           position:'absolute',
           left: 0,
